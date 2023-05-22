@@ -136,11 +136,15 @@ background-color: #080808 !important;
   width: 1em; 
   height: 1em; 
   fill: white 
-
 }
 
 .error{
   color: red;
+}
+
+.main-container .sub-container .forgot-pass{
+  align-self: flex-end;
+  margin-right: 70px;
 }
 
 @media (max-width : 600px) {
