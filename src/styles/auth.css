@@ -1,0 +1,179 @@
+.auth-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+}
+
+.auth-container .main-container {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background-color: #080808;
+  opacity: 0.8;
+}
+
+.auth-container .sub-container {
+  position: absolute;
+  width: 35%;
+  height: 85%;
+  border-radius: 10px;
+  background-color: #272626e6;
+  backdrop-filter: blur(5px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  backdrop-filter: blur(10px);
+  /* border: 1px solid rgba(91, 212, 236, 0.5); */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.sub-heading {
+  font-size: 12px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.auth-container .title {
+  font-size: 2.5em;
+  background: linear-gradient(to right, #5bd4ec, #00CFC8);
+  -webkit-background-clip: text;
+  background-clip: border-box;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 10px;
+  font-variant: small-caps;
+  font-family: 'Gilroy', sans-serif;
+}
+
+.input-field {
+  width: 70%;
+  margin: 10px;
+  /* background: linear-gradient( #5bd4ec, #7a4cb6); */
+  /* background-color: #080808; */
+  border-radius: 10px;
+  margin: 15px;
+
+}
+
+.register-button {
+  background: linear-gradient(#5bd4ec, #b987f3);
+  color: white;
+  width: 30%;
+  height: 6%;
+  margin: 5px;
+  text-decoration: none;
+}
+
+.register-button:focus {
+  background: linear-gradient(#5bd4ec, #b987f3);
+  color: white;
+  width: 30%;
+  height: 6%;
+  text-decoration: none;
+}
+
+.form-icon {
+  color: white;
+}
+
+.auth-container .sub-container .ant-input {
+  /* Override styles for the input field */
+  background-color: black;
+  border-color: gray;
+  color: white;
+  height: 8%;
+  /* Add any other custom styles you want to override */
+}
+
+.ant-input-affix-wrapper {
+  background-color: #080808;
+  border-color: gray;
+}
+
+.auth-container .sub-container .ant-input::placeholder {
+  color: gray;
+}
+
+.account-line {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.ant-picker {
+  background: #080808;
+  border:1px solid  gray;
+  width: 70%;
+  height: 6%;
+  margin: 10px;
+  color: white  !important;
+}
+.ant-picker input {
+  color: white !important;
+  background: #080808 !important;
+background-color: #080808 !important;
+}
+
+
+.ant-picker-input {
+  border: gray;
+  width:100%;
+  background-color: #080808;
+  background: rgb(11, 11, 11);
+  color: red;
+}
+
+/* calendar icon */
+.ant-picker-suffix svg { 
+  width: 1em; 
+  height: 1em; 
+  fill: white 
+
+}
+
+.error{
+  color: red;
+}
+
+@media (max-width : 600px) {
+  .register-button {
+    background: linear-gradient(#5bd4ec, #b987f3);
+    color: white;
+    width: 80%;
+    height: 8%;
+    margin: 5px;
+    text-decoration: none;
+  }
+  .register-button:focus {
+    background: linear-gradient(#5bd4ec, #b987f3);
+    color: white;
+    width: 30%;
+    height: 6%;
+    text-decoration: none;
+  }
+  
+
+  .auth-container .sub-container {
+    position: absolute;
+    width: 75%;
+    height: 80%;
+    border-radius: 10px;
+    background-color: #272626e6;
+    backdrop-filter: blur(5px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    backdrop-filter: blur(10px);
+    /* border: 1px solid rgba(91, 212, 236, 0.5); */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  }
+}

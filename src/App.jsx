@@ -1,7 +1,8 @@
 import './App.css'
 import { BrowserRouter as Router, Route, Routes, Navigate } from "react-router-dom";
 import { privateRoutes, publicRoutes } from '../src//routes/routes';
-
+import 'antd/dist/reset.css';
+import "react-toastify/dist/ReactToastify.css";
 
 // npm run dev
 
