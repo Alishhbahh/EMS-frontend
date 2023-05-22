@@ -3,33 +3,18 @@ import { BrowserRouter as Router, Route, Routes, Navigate } from "react-router-d
 import { privateRoutes, publicRoutes } from '../src//routes/routes';
 import 'antd/dist/reset.css';
 import "react-toastify/dist/ReactToastify.css";
-import { useEffect } from 'react';
-// import jwt_decode from 'jsonwebtoken';
+import { useSelector } from 'react-redux';
 
-// npm run dev
 
 function App() {
 
-localStorage.clear();
-useEffect(()=>{
-  const token= localStorage.getItem('token');
-  console.log(token)
- 
-})
-
-  let token = null;
-  const storedToken = localStorage.getItem("token");
-
-  try {
-    token = JSON.parse(storedToken);
-  } catch (error) {
-    console.error("Error parsing token from localStorage:", error);
-  }
-
+  const user= useSelector((state)=> state.user);
+  console.log("user in App.js", user)
 
 
   return (
     <>
+
      <div>
       <Router>
         <Routes>
@@ -38,7 +23,7 @@ useEffect(()=>{
           ))}
           <Route
             path="/"
-            element={token ? <Navigate to="/dashboard" /> : <Navigate to="/login" />}
+            element={<Navigate to={user ? '/dashboard' : '/login'} replace />}
           />
           {privateRoutes.map((route, index) => (
             <Route key={index} path={route.path} element={route.element} />

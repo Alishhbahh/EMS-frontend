@@ -16,8 +16,19 @@ import {
   passwordValidator,
 } from "../utils/validators";
 import axios from "axios";
+import { useSelector, useDispatch } from "react-redux";
+import {addUser} from "../redux/actions"
+import jwt_decode from 'jwt-decode';
+import { useNavigate } from 'react-router-dom';
+
+
+
 
 const Login = () => {
+  const dispatch = useDispatch();
+
+const navigate = useNavigate();
+
   const [email, setEmail] = useState({ value: "", error: "" });
   const [password, setPassword] = useState({ value: "", error: "" });
 
@@ -44,7 +55,16 @@ const Login = () => {
       if(response.data.message){
         toast.success("User logged in Successfully")
         localStorage.setItem('token', response.data.message);
-        window.location.href='/dashboard'
+        console.log(response.data.message)
+        const decoded =  jwt_decode(response.data.message);
+        console.log("decoded", decoded)
+         if(decoded){
+          dispatch(addUser(decoded));
+          // localStorage.setItem('user', JSON.stringify(decoded));
+          console.log("SAVED IN REDUX")
+          navigate('/dashboard');
+         }
+        
       }
       else{
         toast.error("Error logging in. Re-enter your email and password")
@@ -52,7 +72,8 @@ const Login = () => {
   
     }
     ).catch(error =>{
-      toast.error(error.data.message)
+      console.log(error.message)
+      toast.error(error.message)
     })
 
   };

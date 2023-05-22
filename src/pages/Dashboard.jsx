@@ -1,7 +1,10 @@
 import {useState} from "react";
+import { useSelector } from "react-redux";
 
 const Dashboard = () => {
+  const user=  useSelector((state) => state.user);
     const [count, setCount] = useState(0)
+    console.log("user in dashboard", user)
 
     return (
         <>
