@@ -16,7 +16,7 @@ import {
   passwordValidator,
 } from "../utils/validators";
 import axios from "axios";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import {addUser} from "../redux/actions"
 import jwt_decode from 'jwt-decode';
 import { useNavigate } from 'react-router-dom';
@@ -60,8 +60,6 @@ const navigate = useNavigate();
         console.log("decoded", decoded)
          if(decoded){
           dispatch(addUser(decoded));
-          // localStorage.setItem('user', JSON.stringify(decoded));
-          console.log("SAVED IN REDUX")
           navigate('/dashboard');
          }
         
@@ -72,7 +70,6 @@ const navigate = useNavigate();
   
     }
     ).catch(error =>{
-      console.log(error.message)
       toast.error(error.message)
     })
 

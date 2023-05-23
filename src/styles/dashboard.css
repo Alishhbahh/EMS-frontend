@@ -1,0 +1,53 @@
+
+.user-avatar{
+    margin:2%;
+    top:0;
+    right:0;
+    position: fixed;
+    background: linear-gradient( #b987f3,#5bd4ec );
+    z-index: 2;
+}
+
+
+.ant-drawer-wrapper-body{
+    width: 30px;
+    background-color: #272626; 
+    padding: 0px;
+}
+.ant-drawer .ant-drawer-mask{
+    position: relative;
+}
+
+.ant-drawer .ant-drawer-body{
+    padding: 5px;
+}
+
+.drawer-logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10%;
+}
+
+.drawer-logo{
+    max-width: 60%;
+    max-height: 60%;
+    align-self: center;
+
+}
+
+.custom-menu {
+    background-color: #272626;
+  }
+  
+  .custom-menu .ant-menu-item {
+    color: white;
+    height: 60px;
+  }
+  
+  .custom-menu .ant-menu-item-selected {
+    background-image: linear-gradient(to right, #b987f3,#5bd4ec );
+    height: 60px;
+
+  }
+  

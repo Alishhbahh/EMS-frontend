@@ -2,7 +2,6 @@ import { createStore } from 'redux';
 import reducer from './reducer';
 
 
-// const store = createStore(reducer);
 const persistedState = localStorage.getItem('reduxState')
   ? JSON.parse(localStorage.getItem('reduxState'))
   : {};

@@ -1,28 +1,29 @@
-import {useState} from "react";
 import { useSelector } from "react-redux";
+import "../styles/auth.css";
+import "../styles/dashboard.css";
+import { useNavigate } from 'react-router-dom';
 
+
+import {Avatar} from '../components/Avatar';
+import { Sidebar } from "../components/Sidebar";
 const Dashboard = () => {
   const user=  useSelector((state) => state.user);
-    const [count, setCount] = useState(0)
+  const navigate = useNavigate();
+
+
     console.log("user in dashboard", user)
+  
 
     return (
-        <>
-        <div>
+      <div className="auth-container">
+        <div className="main-container">
+
+          <Sidebar user={user}/>
+          <Avatar user={user} navigate={navigate}/>
         </div>
-        <h1>Vite + React</h1>
-        <div className="card">
-          <button onClick={() => setCount((count) => count + 1)}>
-            count is {count}
-          </button>
-          <p>
-            Edit <code>src/App.jsx</code> and save to test HMR
-          </p>
-        </div>
-        <p className="read-the-docs">
-          Click on the Vite and React logos to learn more
-        </p>
-      </>
+
+
+      </div>
     )
 }
 

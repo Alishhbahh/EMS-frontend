@@ -1,4 +1,4 @@
-import { GET_USER, STORE_USER } from "./actiontypes";
+import {  STORE_USER } from "./actiontypes";
 
 export const addUser = (user) => {
     return {
@@ -6,10 +6,3 @@ export const addUser = (user) => {
       payload: user,
     };
   };
-
-export const getUser=(user)=>{
-    return{
-        type: GET_USER,
-        payload: user,
-    }
-}
