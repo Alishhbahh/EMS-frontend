@@ -3,7 +3,6 @@ import "../styles/auth.css";
 import "../styles/dashboard.css";
 import { useNavigate } from "react-router-dom";
 
-import { Avatar } from "../components/Avatar";
 import { Sidebar } from "../components/Sidebar";
 import { EmployeeList } from "../components/EmployeeList";
 

@@ -6,17 +6,26 @@ import HomeIcon from "@mui/icons-material/Home";
 import PeopleIcon from "@mui/icons-material/People";
 import TodayIcon from "@mui/icons-material/Today";
 import { DownOutlined, UserOutlined, UserAddOutlined } from "@ant-design/icons";
-
+import React, { useState } from 'react';
 import logo from "../assets/logo3.png";
 import { Breadcrumb, Input, Dropdown, Tooltip, Button, Space } from "antd";
 const { Search } = Input;
 import { Avatar } from "./Avatar";
-import { useState } from "react";
+import {
+  MenuFoldOutlined,
+  MenuUnfoldOutlined,
+  UploadOutlined,
+  VideoCameraOutlined,
+} from '@ant-design/icons';
+import { useSelector } from "react-redux";
 
 export const EmployeeList = ({ user, navigate }) => {
   const onSearch = (value) => console.log(value);
+  const collapse = useSelector((state) => state.collapse);
+
   const [searchType, setSearchType] = useState("Everyone");
   const handleButtonClick = (e) => {
+  
     console.log("click left button", e);
   };
   const handleMenuClick = (e) => {
@@ -51,9 +60,9 @@ export const EmployeeList = ({ user, navigate }) => {
   };
 
   return (
-    <div className="right-div">
+    <div className="right-div" style={{left: collapse ? '300px': '100px' }}>
       <div className="search-div">
-
+     
         <Search
           placeholder="Search.."
           allowClear

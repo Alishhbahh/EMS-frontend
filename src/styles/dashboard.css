@@ -48,7 +48,7 @@
     /* margin-top: 80px; */
     position: absolute;
     top: 0;
-    left: 378px; /* Width of the sidebar drawer */
+    left: 300px; /* Width of the sidebar drawer */
     right: 0;
     bottom: 0;
     display: flex;
@@ -255,6 +255,11 @@
     
   }
 
-  .ant-drawer-content-wrapper {
-    width: 200px !important;
+
+.ant-drawer-content-wrapper{
+    width: 100px !important;
+  }
+
+  .ant-drawer-content-wrapper.collapsed {
+    width: 100px !important;
   }
