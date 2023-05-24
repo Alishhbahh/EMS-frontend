@@ -1,7 +1,8 @@
-import { STORE_USER } from "./actiontypes";
+import { STORE_USER,SELECT_NAV_ITEM } from "./actiontypes";
 
 const INIT_STATE = {
-    user: ''
+    user: '',
+    navItem: 'dashboard',
   };
 
 
@@ -13,6 +14,11 @@ const reducer = (state = INIT_STATE, action) => {
             ...state,
             user: action.payload,
         }
+        case SELECT_NAV_ITEM:
+          return{
+            ...state,
+            navItem: action.payload
+          }
         default:
             return state;
         

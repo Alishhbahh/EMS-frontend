@@ -1,4 +1,4 @@
-import {  STORE_USER } from "./actiontypes";
+import {  STORE_USER,SELECT_NAV_ITEM } from "./actiontypes";
 
 export const addUser = (user) => {
     return {
@@ -6,3 +6,10 @@ export const addUser = (user) => {
       payload: user,
     };
   };
+
+export const selectNavItem =(item)=>{
+  return{
+    type: SELECT_NAV_ITEM,
+    payload:item,
+  }
+}

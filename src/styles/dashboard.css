@@ -1,19 +1,11 @@
 
-.user-avatar{
-    margin:2%;
-    top:0;
-    right:0;
-    position: fixed;
-    background: linear-gradient( #b987f3,#5bd4ec );
-    z-index: 2;
-}
 
 
 .ant-drawer-wrapper-body{
-    width: 30px;
     background-color: #272626; 
     padding: 0px;
 }
+
 .ant-drawer .ant-drawer-mask{
     position: relative;
 }
@@ -50,4 +42,219 @@
     height: 60px;
 
   }
+  .right-div{
+    /* background-color: #080808; */
+    background-color: yellow;
+    /* margin-top: 80px; */
+    position: absolute;
+    top: 0;
+    left: 378px; /* Width of the sidebar drawer */
+    right: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+ 
+.right-div .bottom-div{
+  width: 100%;
+  height: 90%;
+  background-color: red;
+  bottom: 0;
+  position: fixed;
+  display: flex;
+}
+  .right-div .search-div{
+    width: 100%;
+    height: 10%;
+    background-color: #080808;
+    top:0;
+    position: fixed;
+    display: flex;
+    flex-direction: row;  
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .right-div .search-div .button-div{
+    width: 100%;
+    height: 10%;
+    /* display: flex; */
+    background-color: #b987f3;
+    margin-top: 10%;
+    position: relative;
+    z-index: 2;
+  }
   
+  .right-div .search-div .search-bar {
+    flex-grow: 1; /* Expand to fill remaining space */
+  }
+
+  .right-div .search-div .user-avatar{
+  /* margin:2%; */
+  margin-right: 2%;
+  margin-top: 1%;
+  top:0;
+  right:0;
+  position: fixed;
+  background: linear-gradient( #b987f3,#5bd4ec );
+}
+  .emp-search{
+    width: 45%;
+    border-radius: 90px;
+    margin-left: 6%;
+    z-index: 1;
+
+  }
+
+  .emp-search .ant-input-group-wrapper{
+    color: white;
+    background-color: #272626;
+    background: #272626;
+    /* height: 40%; */
+  }
+
+  .emp-search .ant-input {
+    /* Override styles for the input field */
+    background-color: #272626;
+    border-color: gray;
+    color: white;
+    height: 30px;
+    /* Add any other custom styles you want to override */
+  }
+  .emp-search .ant-input-affix-wrapper {
+    background-color: #272727;
+    border-color: gray;
+    border: 1px solid #272727;
+
+
+  }
+  .emp-search .ant-input-search-button{
+    background-color: #272727;
+    color: gray;
+    border: 1px solid #272727;
+    height: 40px;
+  }
+  .emp-search .ant-btn-icon{
+    color: gray;
+
+
+  }
+
+  .emp-search .ant-input::placeholder {
+    color: gray;
+  }
+
+  .type-dropdown{
+    margin-left: 5%;
+    height: 40px;
+  }
+
+  .type-dropdown .ant-btn {
+    max-height: 400px; /* Adjust the desired height */
+    background-color: #272626;
+    background: #272626;
+    color: gray;
+    height: 100%;
+    border: 1px solid #272626;
+  }
+
+  .bottom-div .add-emp-button {
+    background: linear-gradient(#5bd4ec, #b987f3);
+    color: white;
+    width: 18%;
+    height: 6%;
+    margin: 5px;
+    text-decoration: none;
+    overflow: auto;
+    margin-left: 55%;
+  }
+
+  @media screen and (max-width: 600px) {
+    .right-div .bottom-div{
+      width: 100%;
+      height: 78%;
+      background-color: red;
+      bottom: 0;
+      position: fixed;
+      display: flex;
+      flex-direction: column;
+    }
+    .bottom-div .add-emp-button {
+      background: linear-gradient(#5bd4ec, #b987f3);
+      color: white;
+      width: 30%;
+      height: 6%;
+      margin: 5px;
+      text-decoration: none;
+      overflow: auto;
+      margin-left: 1%;
+    }
+
+    .right-div .search-div {
+      flex-direction: column;
+      align-items: flex-start;
+      height:22%;
+    }
+  
+    .right-div .search-div .search-bar {
+      margin-bottom: 10px;
+      margin-top: 10px;
+    }
+  
+    .right-div .search-div .user-avatar {
+      position: relative;
+      margin:10px;
+      margin-left: 15px;
+
+    }
+  }
+
+
+  @media only screen and (min-width: 600px) and (max-width: 1023px) {
+    .right-div .bottom-div{
+      width: 100%;
+      height: 75%;
+      background-color: red;
+      bottom: 0;
+      position: fixed;
+    }
+    .bottom-div .add-emp-button {
+      background: linear-gradient(#5bd4ec, #b987f3);
+      color: white;
+      width: 30%;
+      height: 6%;
+      margin: 5px;
+      text-decoration: none;
+      overflow: auto;
+      margin-left: 20%;
+      margin-right:5%;
+    }
+
+    .right-div .search-div {
+      flex-direction: column;
+      align-items: flex-start;
+      height:25%;
+    }
+  
+    .right-div .search-div .emp-search {
+      margin:10px;
+    }
+
+    .right-div .search-div .type-dropdown{
+      margin:10px;
+    }
+  
+    .right-div .search-div .user-avatar {
+      position: relative;
+      margin-top: 10px;
+      margin-bottom: 10px;
+      margin-left: 15px;
+     
+    }
+    
+  }
+
+  .ant-drawer-content-wrapper {
+    width: 200px !important;
+  }

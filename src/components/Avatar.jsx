@@ -1,15 +1,10 @@
 import {useState} from "react";
-import { useSelector } from "react-redux";
 import "../styles/auth.css";
 import "../styles/dashboard.css";
-import { Button, Drawer, Radio, Space, Layout, Menu } from 'antd';
 import {
-  MenuFoldOutlined,
-  UploadOutlined,
   UserOutlined,
-  VideoCameraOutlined,
 } from '@ant-design/icons';
-import { Avatar as Avatarr, Dropdown, Tooltip } from 'antd';
+import { Avatar as Avatarr, Dropdown } from 'antd';
 
 
 export const Avatar = ({user, navigate})=>{
