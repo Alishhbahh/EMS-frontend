@@ -1,3 +1,224 @@
+/* SIDER */
+.ant-layout-sider{
+background-color: #272626 !important;
+}
+.ant-layout-sider-children{
+  background-color: #272626 !important;
+  }
+.ant-menu{
+  background-color: #272626 !important;
+  
+}
+.ant-layout-sider-trigger{
+  background-color: #272626 !important;
+  color: white !important;
+}
+.ant-menu-item-selected{
+  color: white !important;
+  background-image: linear-gradient(to right, #b987f3, #5bd4ec);
+  height: 40%;
+}
+.ant-menu-item{
+  color: white !important;
+  height: 90px;
+}
+.ant-menu-item:hover{
+  color: white !important;
+  background-color: #272626 !important;
+  height: 40%;
+}
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo-img {
+  width: 100%;
+  max-height: 100%;
+  align-self: center;
+}
+
+.user-avatar {
+  margin-right: 2%;
+  margin-top: 1%;
+  top: 0;
+  right: 0;
+  position: fixed;
+  background: linear-gradient(#b987f3, #5bd4ec);
+}
+
+.content-div{
+  display: flex;
+  flex-direction: column;
+  flex:1;
+  background-color: #080808;
+  height: 100%;
+}
+
+.search-div {
+  width: 100%;
+  height: 8%;
+  background-color: #080808;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  justify-self: center;
+}
+
+.emp-search {
+  width: 65%;
+  border-radius: 90px;
+  margin-left: 5%;
+  z-index: 1;
+}
+
+.emp-search .ant-input-group-wrapper {
+  color: white;
+  background-color: #272626;
+  background: #272626;
+}
+
+.emp-search .ant-input {
+  background-color: #272626;
+  border-color: gray;
+  color: white;
+  height: 30px;
+}
+
+.emp-search .ant-input-affix-wrapper {
+  background-color: #272727;
+  border-color: gray;
+  border: 1px solid #272727;
+}
+
+.emp-search .ant-input-search-button {
+  background-color: #272727;
+  color: gray;
+  border: 1px solid #272727;
+  height: 40px;
+}
+
+.emp-search .ant-btn-icon {
+  color: gray;
+}
+
+.emp-search .ant-input::placeholder {
+  color: gray;
+}
+
+.type-dropdown {
+  margin-left: 5%;
+  height: 40px;
+}
+
+.type-dropdown .ant-btn {
+  max-height: 400px;
+  background-color: #272626;
+  background: #272626;
+  color: gray;
+  height: 100%;
+  border: 1px solid #272626;
+}
+
+.search-div .register-user-button {
+  background: linear-gradient(#5bd4ec, #b987f3);
+  color: white;
+  width: 35%;
+  height: 70%;
+  margin: 5px;
+  text-decoration: none;
+  overflow: hidden;
+  right: 0;
+}
+
+/* EMPLOYEE REGISTRATION */
+.content-div .emp-reg-container{
+  width: 50%;
+  height: 95%;
+  align-self: center;
+  background-color: #272626e6;
+  justify-self: center;
+  border-radius: 30px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.emp-reg-container .close-btn{
+  color: gray;
+  align-self: center;
+}
+.emp-reg-container .ant-input {
+  background-color: black;
+  border-color: gray;
+  color: white;
+  height: 8%;
+}
+
+.ant-input-affix-wrapper {
+  background-color: #080808;
+  border-color: gray;
+}
+
+.emp-reg-container .ant-input::placeholder {
+  color: gray;
+}
+
+.emp-reg-container .title {
+  font-size: 1.5em;
+  background-clip: border-box;
+  margin-bottom: 10px;
+  color: white;
+  font-variant: small-caps;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+
+
+@media screen and (max-width: 600px) {
+  .search-div {
+    width: 100%;
+    height: 26%;
+    background-color: #080808;
+    display: flex;
+    flex:1;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  .search-div .emp-search {
+    width: 80%;
+    border-radius: 90px;
+    z-index: 1;
+    margin: 5px;
+  }
+
+ .search-div .type-dropdown {
+    margin-left: 5%;
+    height: 40px;
+    width: 80%;
+    margin: 5px;
+    margin-left: 5%;
+  }
+  .search-div .register-user-button {
+    background: linear-gradient(#5bd4ec, #b987f3);
+    color: white;
+    width: 80%;
+    height: 6%;
+    margin: 5px;
+    text-decoration: none;
+    overflow: hidden;
+    left: 0;
+  }
+  
+}
+
+ /* ///////////////////OLD STYLESSSS ///////////////////*/
 .ant-drawer-wrapper-body {
   background-color: #272626;
   padding: 0px;
@@ -88,258 +309,3 @@
   flex-grow: 1;
 }
 
-.right-div .search-div .user-avatar {
-  margin-right: 2%;
-  margin-top: 1%;
-  top: 0;
-  right: 0;
-  position: fixed;
-  background: linear-gradient(#b987f3, #5bd4ec);
-}
-
-.emp-search {
-  width: 45%;
-  border-radius: 90px;
-  margin-left: 26%;
-  z-index: 1;
-}
-
-.emp-search .ant-input-group-wrapper {
-  color: white;
-  background-color: #272626;
-  background: #272626;
-}
-
-.emp-search .ant-input {
-  background-color: #272626;
-  border-color: gray;
-  color: white;
-  height: 30px;
-}
-
-.emp-search .ant-input-affix-wrapper {
-  background-color: #272727;
-  border-color: gray;
-  border: 1px solid #272727;
-}
-
-.emp-search .ant-input-search-button {
-  background-color: #272727;
-  color: gray;
-  border: 1px solid #272727;
-  height: 40px;
-}
-
-.emp-search .ant-btn-icon {
-  color: gray;
-}
-
-.emp-search .ant-input::placeholder {
-  color: gray;
-}
-
-.type-dropdown {
-  margin-left: 5%;
-  height: 40px;
-}
-
-.type-dropdown .ant-btn {
-  max-height: 400px;
-  background-color: #272626;
-  background: #272626;
-  color: gray;
-  height: 100%;
-  border: 1px solid #272626;
-}
-
-.bottom-div .add-emp-button {
-  background: linear-gradient(#5bd4ec, #b987f3);
-  color: white;
-  width: 18%;
-  height: 6%;
-  margin: 5px;
-  text-decoration: none;
-  overflow: auto;
-  margin-left: 55%;
-}
-
-.register-user-button {
-  background: linear-gradient(#5bd4ec, #b987f3);
-  color: white;
-  width: 15%;
-  height: 6%;
-  margin: 5px;
-  text-decoration: none;
-  overflow: auto;
-  right: 0;
-}
-
-.ant-drawer-content-wrapper {
-  width: 100px !important;
-}
-
-.ant-drawer-content-wrapper.collapsed {
-  width: 100px !important;
-}
-
-
-@media screen and (max-width: 600px) {
-  .right-div {
-    background-color: yellow;
-    position: absolute;
-    top: 0;
-    left: 90px;
-    right: 0;
-    bottom: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: calc(100% - 300px);
-    height: '100%;'
-  }
-
-  .right-div .bottom-div {
-    width: 100%;
-    height: 70%;
-    background-color: pink;
-    bottom: 0;
-    position: fixed;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .right-div .search-div {
-    width: 100%;
-    height: 10%;
-    background-color: #080808;
-    top: 0;
-    position: fixed;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-  }
-
-  .right-div .search-div .button-div {
-    width: 100%;
-    height: 10%;
-    background-color: #b987f3;
-    margin-top: 10%;
-    position: relative;
-    z-index: 2;
-  }
-
-  .right-div .search-div .search-bar {
-    flex-grow: 1;
-  }
-
-  .right-div .search-div .user-avatar {
-    margin-right: 2%;
-    margin-top: 1%;
-    top: 0;
-    right: 0;
-    position: fixed;
-    background: linear-gradient(#b987f3, #5bd4ec);
-  }
-
-  .emp-search {
-    width: 45%;
-    border-radius: 90px;
-    margin-left: 26%;
-    z-index: 1;
-  }
-
-  .emp-search .ant-input-group-wrapper {
-    color: white;
-    background-color: #272626;
-    background: #272626;
-  }
-
-  .emp-search .ant-input {
-    background-color: #272626;
-    border-color: gray;
-    color: white;
-    height: 30px;
-  }
-
-  .emp-search .ant-input-affix-wrapper {
-    background-color: #272727;
-    border-color: gray;
-    border: 1px solid #272727;
-  }
-
-  .emp-search .ant-input-search-button {
-    background-color: #272727;
-    color: gray;
-    border: 1px solid #272727;
-    height: 40px;
-  }
-
-  .emp-search .ant-btn-icon {
-    color: gray;
-  }
-
-  .emp-search .ant-input::placeholder {
-    color: gray;
-  }
-
-  .type-dropdown {
-    margin-left: 5%;
-    height: 40px;
-  }
-
-  .type-dropdown .ant-btn {
-    max-height: 400px;
-    background-color: #272626;
-    background: #272626;
-    color: gray;
-    height: 100%;
-    border: 1px solid #272626;
-  }
-}
-
-
-@media only screen and (min-width: 600px) and (max-width: 1023px) {
-  .right-div .bottom-div {
-    width: 100%;
-    height: 75%;
-    background-color: pink;
-    bottom: 0;
-    position: fixed;
-  }
-
-  .bottom-div .add-emp-button {
-    background: linear-gradient(#5bd4ec, #b987f3);
-    color: white;
-    width: 30%;
-    height: 6%;
-    margin: 5px;
-    text-decoration: none;
-    overflow: auto;
-    margin-left: 20%;
-    margin-right: 5%;
-  }
-
-  .right-div .search-div {
-    flex-direction: column;
-    align-items: flex-start;
-    height: 25%;
-  }
-
-  .right-div .search-div .emp-search {
-    margin: 10px;
-  }
-
-  .right-div .search-div .type-dropdown {
-    margin: 10px;
-  }
-
-  .right-div .search-div .user-avatar {
-    position: relative;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    margin-left: 15px;
-
-  }
-}

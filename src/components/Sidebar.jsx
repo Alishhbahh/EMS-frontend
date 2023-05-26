@@ -1,44 +1,29 @@
 /* eslint-disable prettier/prettier */
 /* eslint-disable react-hooks/exhaustive-deps */
 import "../styles/auth.css";
+const { Sider } = Layout;
 import "../styles/dashboard.css";
-import { Drawer, Menu } from "antd";
 import logo from "../assets/logo3.png";
-import { useDispatch } from "react-redux";
-import { useState, useEffect } from "react";
+import { Menu, Layout } from "antd";
+import { useDispatch, useSelector } from "react-redux";
 import TaskIcon from "@mui/icons-material/Task";
 import HomeIcon from "@mui/icons-material/Home";
 import TodayIcon from "@mui/icons-material/Today";
 import PeopleIcon from "@mui/icons-material/People";
-import { selectNavItem, setDrawerCollapse } from "../redux/actions";
+import { selectNavItem } from "../redux/actions";
 
-export const Sidebar = ({ user }) => {
-  const role = user.role;
+export const Sidebar = ({ user, collapsed, toggleCollapsed }) => {
+  const { role } = user;
   const dispatch = useDispatch();
-  const [collapse, setCollapse] = useState(false); // for drawer collapse
+  const selectedItem = useSelector((state) => state.navItem); // this is the selected item in the sidebar
 
-  function getItem(label, key, icon, children) {
+  const getItem= (label, key, icon) => {
     return {
+      label,
       key,
       icon,
-      children,
-      label,
     };
   }
-
-  useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth < 500) {
-        setCollapse(true);
-        dispatch(setDrawerCollapse(true));
-      }
-    };
-    window.addEventListener("resize", handleResize);
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
 
   const hrItems = [
     getItem("Dashboard", "dashboard", <HomeIcon style={{ fontSize: 22 }} />),
@@ -49,7 +34,7 @@ export const Sidebar = ({ user }) => {
 
   const empItems = [
     getItem("Dashboard", "dashboard", <HomeIcon style={{ fontSize: 22 }} />),
-    getItem("Attendance", "Attendance", <PeopleIcon style={{ fontSize: 22 }} />),
+    getItem( "Attendance", "attendance", <PeopleIcon style={{ fontSize: 22 }} />),
     getItem("Leaves", "leaves", <TaskIcon style={{ fontSize: 22 }} />),
     getItem("Schedule", "schedule", <TodayIcon style={{ fontSize: 22 }} />),
   ];
@@ -59,39 +44,39 @@ export const Sidebar = ({ user }) => {
   };
 
   return (
-    <Drawer
-      placement="left"
-      closable={false}
-      open={true}
-      key="left"
-      headerStyle={{ display: "none" }}
-      style={{ width: collapse ? "100px" : "300px" }}
+    <Sider
+      theme="dark"
+      collapsible
+      collapsed={collapsed}
+      onCollapse={toggleCollapsed}
+      width={300}
     >
-      <div className="drawer-logo-container">
-        <img src={logo} alt="My Image" className="drawer-logo" />
+      <div className="logo">
+        <img src={logo} alt="logo"  className="logo-img"/>
       </div>
-
-      {collapse ? (
-        <Menu
-          className="custom-menu icon-menu"
-          defaultSelectedKeys={["dashboard"]}
-          mode="inline"
-          items={
-            role === "HR"
-              ? hrItems.map((item) => ({ ...item, label: null }))
-              : empItems.map((item) => ({ ...item, label: null }))
-          }
-          onClick={handleItemClick}
-        />
-      ) : (
-        <Menu
-          className="custom-menu full-menu"
-          defaultSelectedKeys={["dashboard"]}
-          mode="inline"
-          items={role === "HR" ? hrItems : empItems}
-          onClick={handleItemClick}
-        />
-      )}
-    </Drawer>
+      <Menu theme="dark" mode="inline" defaultSelectedKeys={[selectedItem]}>
+        {role === "HR"
+          ? hrItems.map((item) => (
+              <Menu.Item
+                key={item.key}
+                icon={item.icon}
+                style={{height: 60}}
+                onClick={() => handleItemClick(item)}
+              >
+                {item.label}
+              </Menu.Item>
+            ))
+          : empItems.map((item) => (
+              <Menu.Item
+                key={item.key}
+                icon={item.icon}
+                style={{height: 60}}
+                onClick={() => handleItemClick(item)}
+              >
+                {item.label}
+              </Menu.Item>
+            ))}
+      </Menu>
+    </Sider>
   );
 };

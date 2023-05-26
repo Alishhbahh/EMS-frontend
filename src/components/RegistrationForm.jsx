@@ -113,12 +113,18 @@ export const RegistrationForm = ({ setShowForm }) => {
   };
 
   return (
-    <div className="sub-container" style={{ width: "45%" }}>
+    <div className="emp-reg-container">
       <ToastContainer />
-      <Button onClick={() => setShowForm(false)} type="text" danger>
+      <Button
+        className="close-btn"
+        onClick={() => setShowForm(false)}
+        type="text"
+        danger
+      >
         ✖
       </Button>
       <Switch
+        className="switch-btn"
         defaultChecked
         onChange={() =>
           setChecked(checked === "Employee" ? "Team Lead" : "Employee")

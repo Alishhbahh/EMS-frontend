@@ -1,18 +1,15 @@
 import axios from "axios";
 import "../styles/dashboard.css";
-import { Avatar } from "./Avatar";
 import { toast } from "react-toastify";
-import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { Input, Dropdown, Button } from "antd";
 const { Search } = Input;
 import { RegistrationForm } from "./RegistrationForm";
 import { UserOutlined, UserAddOutlined } from "@ant-design/icons";
 
-export const EmployeeList = ({ user, navigate }) => {
+export const EmployeeList = () => {
   const [employees, setEmployees] = useState([]);
   const [showForm, setShowForm] = useState(false);
-  const collapse = useSelector((state) => state.collapse);
   const [searchType, setSearchType] = useState("Everyone");
 
   const getAllEmployees = () => {
@@ -72,7 +69,7 @@ export const EmployeeList = ({ user, navigate }) => {
   };
 
   return (
-    <div className="right-div" style={{ left: !collapse ? "100px" : "300px" }}>
+    <div className="content-div">
       {showForm ? (
         <RegistrationForm setShowForm={handleForm} />
       ) : (
@@ -91,9 +88,6 @@ export const EmployeeList = ({ user, navigate }) => {
             >
               {searchType}
             </Dropdown.Button>
-            <Avatar user={user} navigate={navigate} />
-          </div>
-          <div className="bottom-div">
             <Button
               className="register-user-button"
               icon={<UserAddOutlined />}
