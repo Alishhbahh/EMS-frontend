@@ -33,7 +33,6 @@
   align-items: center;
   flex-direction: column;
   backdrop-filter: blur(10px);
-  /* border: 1px solid rgba(91, 212, 236, 0.5); */
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
@@ -49,7 +48,6 @@
   align-items: center;
   flex-direction: column;
   backdrop-filter: blur(10px);
-  /* border: 1px solid rgba(91, 212, 236, 0.5); */
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   overflow: auto;
 }
@@ -71,31 +69,28 @@
 .input-field {
   width: 70%;
   margin: 10px;
-  /* background: linear-gradient( #5bd4ec, #7a4cb6); */
-  /* background-color: #080808; */
   border-radius: 10px;
   margin: 15px;
 
 }
 
-.ant-select{
+.ant-select {
   width: 70%;
   margin: 10px;
   border-radius: 10px;
   margin: 15px;
-    background-color: #080808;
+  background-color: #080808;
 
 }
-.ant-select::placeholder{
- color: white;
 
+.ant-select::placeholder {
+  color: white;
 }
 
 .ant-select-selector {
   background-color: black !important;
-  color: white !important; 
+  color: white !important;
 }
-
 
 .register-button {
   background: linear-gradient(#5bd4ec, #b987f3);
@@ -119,12 +114,10 @@
 }
 
 .auth-container .sub-container .ant-input {
-  /* Override styles for the input field */
   background-color: black;
   border-color: gray;
   color: white;
   height: 8%;
-  /* Add any other custom styles you want to override */
 }
 
 .ant-input-affix-wrapper {
@@ -144,55 +137,54 @@
 
 .ant-picker {
   background: #080808;
-  border:1px solid  gray;
+  border: 1px solid gray;
   width: 70%;
   height: 6%;
   margin: 10px;
-  color: white  !important;
+  color: white !important;
 }
+
 .ant-picker input {
   color: white !important;
   background: #080808 !important;
-background-color: #080808 !important;
+  background-color: #080808 !important;
 }
 
 
 .ant-picker-input {
   border: gray;
-  width:100%;
+  width: 100%;
   background-color: #080808;
   background: rgb(11, 11, 11);
   color: red;
 }
 
 /* calendar icon */
-.ant-picker-suffix svg { 
-  width: 1em; 
-  height: 1em; 
-  fill: white 
+.ant-picker-suffix svg {
+  width: 1em;
+  height: 1em;
+  fill: white
 }
 
-.error{
+.error {
   color: red;
 }
 
-.main-container .sub-container .forgot-pass{
+.main-container .sub-container .forgot-pass {
   align-self: flex-end;
   margin-right: 70px;
 }
 
-.ant-switch{
+.ant-switch {
   float: right;
   margin-left: 70%;
-  margin-bottom:30px;
-  margin-top:10px;
+  margin-bottom: 30px;
+  margin-top: 10px;
 }
 
-.ant-select-arrow{
+.ant-select-arrow {
   color: white !important;
 }
-
-
 
 @media (max-width : 600px) {
   .register-button {
@@ -203,6 +195,7 @@ background-color: #080808 !important;
     margin: 5px;
     text-decoration: none;
   }
+
   .register-button:focus {
     background: linear-gradient(#5bd4ec, #b987f3);
     color: white;
@@ -210,7 +203,6 @@ background-color: #080808 !important;
     height: 6%;
     text-decoration: none;
   }
-  
 
   .auth-container .sub-container {
     position: absolute;
@@ -224,8 +216,6 @@ background-color: #080808 !important;
     align-items: center;
     flex-direction: column;
     backdrop-filter: blur(10px);
-    /* border: 1px solid rgba(91, 212, 236, 0.5); */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   }
 }
-

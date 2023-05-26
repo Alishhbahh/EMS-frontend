@@ -1,33 +1,33 @@
-import { useState } from "react";
 import "../styles/auth.css";
 import "../styles/dashboard.css";
+import { useState } from "react";
 import { UserOutlined } from "@ant-design/icons";
 import { Avatar as Avatarr, Dropdown } from "antd";
 
 export const Avatar = ({ user, navigate }) => {
-  const name = user.name;
-  const firstLetter = name ? name.charAt(0).toUpperCase() : "";
-  const [open, setOpen] = useState(false);
+  const { name } = user;
+  const firstLetter = name?.charAt(0).toUpperCase() ?? "";
+  const [open, setOpen] = useState(false); // for dropdown menu
 
   const items = [
     {
       label: "Profile",
-      key: "1",
+      key: "profile",
       icon: <UserOutlined />,
     },
     {
       label: "Logout",
-      key: "2",
+      key: "logout",
       icon: <UserOutlined />,
     },
   ];
 
   const handleMenuClick = (e) => {
-    if (e.key === "1") {
+    if (e.key === "profile") {
       console.log("profile here");
+      // TODO: navigate to profile page later on
     }
-    if (e.key === "2") {
-      console.log("logout here");
+    if (e.key === "logout") {
       localStorage.clear();
       navigate("/login");
     }

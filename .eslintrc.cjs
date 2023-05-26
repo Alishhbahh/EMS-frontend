@@ -19,5 +19,6 @@ module.exports = {
     "no-unused-vars": "error", // Point out unused variables
     "no-trailing-spaces": "error", // Disallow trailing spaces
     "no-console": ["error", { allow: ["warn", "error"] }],
+    "react-hooks/exhaustive-deps": "off", // Disable the exhaustive-deps rule
   },
 };

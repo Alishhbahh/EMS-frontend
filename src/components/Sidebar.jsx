@@ -1,20 +1,22 @@
+/* eslint-disable prettier/prettier */
 /* eslint-disable react-hooks/exhaustive-deps */
 import "../styles/auth.css";
 import "../styles/dashboard.css";
 import { Drawer, Menu } from "antd";
+import logo from "../assets/logo3.png";
+import { useDispatch } from "react-redux";
+import { useState, useEffect } from "react";
 import TaskIcon from "@mui/icons-material/Task";
 import HomeIcon from "@mui/icons-material/Home";
-import PeopleIcon from "@mui/icons-material/People";
 import TodayIcon from "@mui/icons-material/Today";
-import { useDispatch } from "react-redux";
-import logo from "../assets/logo3.png";
+import PeopleIcon from "@mui/icons-material/People";
 import { selectNavItem, setDrawerCollapse } from "../redux/actions";
-import { useState, useEffect } from "react";
 
 export const Sidebar = ({ user }) => {
   const role = user.role;
   const dispatch = useDispatch();
-  const [collapse, setCollapse] = useState(false);
+  const [collapse, setCollapse] = useState(false); // for drawer collapse
+
   function getItem(label, key, icon, children) {
     return {
       key,
@@ -47,11 +49,7 @@ export const Sidebar = ({ user }) => {
 
   const empItems = [
     getItem("Dashboard", "dashboard", <HomeIcon style={{ fontSize: 22 }} />),
-    getItem(
-      "Attendance",
-      "Attendance",
-      <PeopleIcon style={{ fontSize: 22 }} />
-    ),
+    getItem("Attendance", "Attendance", <PeopleIcon style={{ fontSize: 22 }} />),
     getItem("Leaves", "leaves", <TaskIcon style={{ fontSize: 22 }} />),
     getItem("Schedule", "schedule", <TodayIcon style={{ fontSize: 22 }} />),
   ];
@@ -59,7 +57,7 @@ export const Sidebar = ({ user }) => {
   const handleItemClick = (item) => {
     dispatch(selectNavItem(item.key));
   };
-  console.log("collapse", collapse);
+
   return (
     <Drawer
       placement="left"

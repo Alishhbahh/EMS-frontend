@@ -1,17 +1,20 @@
+import axios from "axios";
 import "../styles/dashboard.css";
-import { UserOutlined, UserAddOutlined } from "@ant-design/icons";
+import { Avatar } from "./Avatar";
+import { toast } from "react-toastify";
+import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { Input, Dropdown, Button } from "antd";
 const { Search } = Input;
-import { Avatar } from "./Avatar";
-import { useSelector } from "react-redux";
-import axios from "axios";
 import { RegistrationForm } from "./RegistrationForm";
-import { toast } from "react-toastify";
+import { UserOutlined, UserAddOutlined } from "@ant-design/icons";
 
 export const EmployeeList = ({ user, navigate }) => {
   const [employees, setEmployees] = useState([]);
   const [showForm, setShowForm] = useState(false);
+  const collapse = useSelector((state) => state.collapse);
+  const [searchType, setSearchType] = useState("Everyone");
+
   const getAllEmployees = () => {
     axios
       .get("http://localhost:8080/api/emp/getemployees")
@@ -27,18 +30,15 @@ export const EmployeeList = ({ user, navigate }) => {
     getAllEmployees();
   }, []);
 
-  function onSearch(value) {
+  // TODO: add search functionality Later on
+  const onSearch = (value) => {
     return console.log(value);
-  }
-  const collapse = useSelector((state) => state.collapse);
-  const [searchType, setSearchType] = useState("Everyone");
-
-  const handleButtonClick = (e) => {
-    console.log("click left button", e);
   };
+
   const handleMenuClick = (e) => {
     setSearchType(e.key);
   };
+
   const items = [
     {
       label: "Everyone",
@@ -88,11 +88,9 @@ export const EmployeeList = ({ user, navigate }) => {
               className="type-dropdown"
               overlayStyle={{ maxHeight: "200px" }}
               menu={menuProps}
-              onClick={handleButtonClick}
             >
               {searchType}
             </Dropdown.Button>
-
             <Avatar user={user} navigate={navigate} />
           </div>
           <div className="bottom-div">

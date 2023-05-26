@@ -1,19 +1,18 @@
-import { useSelector } from "react-redux";
 import "../styles/auth.css";
 import "../styles/dashboard.css";
+import { useSelector } from "react-redux";
+import { Avatar } from "../components/Avatar";
 import { useNavigate } from "react-router-dom";
-
 import { Sidebar } from "../components/Sidebar";
 import { EmployeeList } from "../components/EmployeeList";
-import { Avatar } from "../components/Avatar";
+
 const Dashboard = () => {
   const user = useSelector((state) => state.user);
-  const selectedItem = useSelector((state) => state.navItem);
+  const selectedItem = useSelector((state) => state.navItem); // this is the selected item in the sidebar
   const navigate = useNavigate();
-  console.log("selected", selectedItem);
 
-  console.log("user in dashboard", user);
   let displayedComponent = "dashboard";
+
   if (selectedItem === "employees") {
     displayedComponent = <EmployeeList user={user} navigate={navigate} />;
   }

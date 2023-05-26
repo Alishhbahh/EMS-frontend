@@ -34,13 +34,14 @@ export const RegistrationForm = ({ setShowForm }) => {
   const [joiningDate, setJoiningDate] = useState({ value: "", error: "" });
   const [dept, setDept] = useState({ value: "", error: "" });
   const [departments, setDepartments] = useState([]);
+
   const handleRegistration = () => {
+    const deptError = deptValidator(dept.value);
     const nameError = nameValidator(name.value);
     const emailError = emailValidator(email.value);
-    const passwordError = passwordValidator(password.value);
     const phoneError = phoneValidator(contactNumber.value);
+    const passwordError = passwordValidator(password.value);
     const joiningError = joiningValidator(joiningDate.value);
-    const deptError = deptValidator(dept.value);
     if (
       emailError ||
       passwordError ||
@@ -75,18 +76,23 @@ export const RegistrationForm = ({ setShowForm }) => {
         password: password.value,
       })
       .then((response) => {
-        toast.success(response.data.message);
-        setName({ value: "", error: "" });
-        setEmail({ value: "", error: "" });
-        setPassword({ value: "", error: "" });
-        setContactNumber({ value: "", error: "" });
-        setJoiningDate({ value: "", error: "" });
-        setDept({ value: "", error: "" });
+        if (response.data.message) {
+          toast.success(response.data.message);
+          setName({ value: "", error: "" });
+          setEmail({ value: "", error: "" });
+          setPassword({ value: "", error: "" });
+          setContactNumber({ value: "", error: "" });
+          setJoiningDate({ value: "", error: "" });
+          setDept({ value: "", error: "" });
+        } else {
+          toast.error(response.data.error);
+        }
       })
       .catch((error) => {
         toast.error(error.data.message);
       });
   };
+
   const getDepartments = () => {
     axios
       .get("http://localhost:8080/api/emp/getdepts")
@@ -124,31 +130,30 @@ export const RegistrationForm = ({ setShowForm }) => {
         <h6 className="title">Employee Registration</h6>
       )}
       <Input
-        placeholder="Name"
-        className="input-field"
         size="large"
         value={name.value}
+        placeholder="Name"
+        className="input-field"
         addonBefore={<UserOutlined className="form-icon" />}
         status={name.error ? "error" : undefined}
         onChange={(e) => setName({ value: e.target.value, error: null })}
       />
       <h6 className="error">{name.error}</h6>
       <Input
-        placeholder="Email"
-        className="input-field"
         size="large"
         value={email.value}
+        placeholder="Email"
+        className="input-field"
         addonBefore={<MailOutlined className="form-icon" />}
         status={email.error ? "error" : undefined}
         onChange={(e) => setEmail({ value: e.target.value, error: "" })}
       />
       <h6 className="error">{email.error}</h6>
-
       <Input.Password
-        placeholder="Password"
-        className="input-field"
         size="large"
         value={password.value}
+        placeholder="Password"
+        className="input-field"
         iconRender={(visible) =>
           visible ? (
             <EyeOutlined style={{ color: "white" }} />
@@ -161,26 +166,25 @@ export const RegistrationForm = ({ setShowForm }) => {
         onChange={(e) => setPassword({ value: e.target.value, error: "" })}
       />
       <h6 className="error">{password.error}</h6>
-
       <Input
-        placeholder="Contact Number"
-        className="input-field"
         size="large"
+        className="input-field"
         value={contactNumber.value}
-        addonBefore={<PhoneOutlined className="form-icon" />}
+        placeholder="Contact Number"
         status={contactNumber.error ? "error" : undefined}
+        addonBefore={<PhoneOutlined className="form-icon" />}
         onChange={(e) => setContactNumber({ value: e.target.value, error: "" })}
       />
       <h6 className="error">{contactNumber.error}</h6>
       {checked === "Team Lead" ? (
         <>
           <Input
-            placeholder="Department"
-            className="input-field"
             size="large"
             value={dept.value}
-            addonBefore={<ProfileOutlined className="form-icon" />}
+            className="input-field"
+            placeholder="Department"
             status={name.error ? "error" : undefined}
+            addonBefore={<ProfileOutlined className="form-icon" />}
             onChange={(e) => setDept({ value: e.target.value, error: "" })}
           />
           <h6 className="error">{dept.error}</h6>
@@ -198,17 +202,15 @@ export const RegistrationForm = ({ setShowForm }) => {
           ))}
         </Select>
       )}
-
       <DatePicker
         value={joiningDate.value ? moment(joiningDate.value) : null}
         onChange={onChange}
       />
       <h6 className="error">{joiningDate.error}</h6>
-
       <Button
-        className="register-button"
-        icon={<LoginOutlined />}
         size={42}
+        icon={<LoginOutlined />}
+        className="register-button"
         onClick={() => handleRegistration()}
       >
         Register
