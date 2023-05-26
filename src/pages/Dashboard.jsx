@@ -8,13 +8,13 @@ import { Avatar } from "../components/Avatar";
 import { Sidebar } from "../components/Sidebar";
 import { useNavigate } from "react-router-dom";
 import { darkprimary } from "../styles/colors";
-import { EmployeeList } from "../components/EmployeeList";
 import { MenuOutlined } from "@ant-design/icons";
+import { EmployeeList } from "../components/EmployeeList";
 
 const Dashboard = () => {
   const navigate = useNavigate();
-  const [collapsed, setCollapsed] = useState(false);
   const user = useSelector((state) => state.user);
+  const [collapsed, setCollapsed] = useState(false);
   const selectedItem = useSelector((state) => state.navItem); // this is the selected item in the sidebar
 
   const toggleCollapsed = () => {
@@ -22,13 +22,12 @@ const Dashboard = () => {
   };
 
   let displayedComponent = "dashboard";
-
   if (selectedItem === "employees") {
     displayedComponent = <EmployeeList />;
   }
 
   return (
-    <div style={{ width: "100%", height: "100vh", backgroundColor: "purple" }}>
+    <div style={{ width: "100%", height: "100vh" }}>
       <Layout style={{ minHeight: "100%" }}>
         <Sidebar
           user={user}

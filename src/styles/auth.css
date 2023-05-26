@@ -52,7 +52,6 @@
   overflow: auto;
 }
 
-
 .sub-heading {
   font-size: 12px;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
@@ -71,7 +70,6 @@
   margin: 10px;
   border-radius: 10px;
   margin: 15px;
-
 }
 
 .ant-select {
@@ -80,7 +78,6 @@
   border-radius: 10px;
   margin: 15px;
   background-color: #080808;
-
 }
 
 .ant-select::placeholder {

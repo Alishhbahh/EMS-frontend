@@ -1,5 +1,3 @@
-import "../styles/auth.css";
-import { Input, Button, DatePicker, Select } from "antd";
 import {
   UserOutlined,
   LoginOutlined,
@@ -9,8 +7,6 @@ import {
   EyeInvisibleOutlined,
   EyeOutlined,
 } from "@ant-design/icons";
-import { useEffect, useState } from "react";
-import { toast, ToastContainer } from "react-toastify";
 import {
   emailValidator,
   nameValidator,
@@ -19,11 +15,15 @@ import {
   joiningValidator,
   deptValidator,
 } from "../utils/validators";
+import "../styles/auth.css";
 import axios from "axios";
-import moment from "moment";
-import { ProfileOutlined } from "@ant-design/icons";
-import { Switch } from "antd";
 const { Option } = Select;
+import moment from "moment";
+import { Switch } from "antd";
+import { useEffect, useState } from "react";
+import { ProfileOutlined } from "@ant-design/icons";
+import { Input, Button, DatePicker, Select } from "antd";
+import { toast, ToastContainer } from "react-toastify";
 
 export const RegistrationForm = ({ setShowForm }) => {
   const [checked, setChecked] = useState("Team Lead");

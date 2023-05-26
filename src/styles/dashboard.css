@@ -39,6 +39,8 @@ background-color: #272626 !important;
   align-self: center;
 }
 
+ /* HEADER */
+
 .user-avatar {
   margin-right: 2%;
   margin-top: 1%;
@@ -48,6 +50,7 @@ background-color: #272626 !important;
   background: linear-gradient(#b987f3, #5bd4ec);
 }
 
+/* CONTENT DIV */
 .content-div{
   display: flex;
   flex-direction: column;
@@ -56,6 +59,7 @@ background-color: #272626 !important;
   height: 100%;
 }
 
+/* EMPLOYEES COMPONENT */
 .search-div {
   width: 100%;
   height: 8%;
@@ -177,8 +181,6 @@ background-color: #272626 !important;
   font-family: 'Courier New', Courier, monospace;
 }
 
-
-
 @media screen and (max-width: 600px) {
   .search-div {
     width: 100%;
@@ -217,95 +219,3 @@ background-color: #272626 !important;
   }
   
 }
-
- /* ///////////////////OLD STYLESSSS ///////////////////*/
-.ant-drawer-wrapper-body {
-  background-color: #272626;
-  padding: 0px;
-}
-
-.ant-drawer .ant-drawer-mask {
-  position: relative;
-}
-
-.ant-drawer .ant-drawer-body {
-  padding: 5px;
-}
-
-.drawer-logo-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 10%;
-}
-
-.drawer-logo {
-  max-width: 60%;
-  max-height: 60%;
-  align-self: center;
-}
-
-.custom-menu {
-  background-color: #272626;
-}
-
-.custom-menu .ant-menu-item {
-  color: white;
-  height: 60px;
-}
-
-.custom-menu .ant-menu-item-selected {
-  background-image: linear-gradient(to right, #b987f3, #5bd4ec);
-  height: 60px;
-}
-
-.right-div {
-  background-color: #080808;
-  position: absolute;
-  top: 0;
-  left: 300px;
-  /* Width of the sidebar drawer */
-  right: 0;
-  bottom: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-
-.right-div .bottom-div {
-  width: 100%;
-  height: 90%;
-  background-color: pink;
-  bottom: 0;
-  position: fixed;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.right-div .search-div {
-  width: 100%;
-  height: 10%;
-  background-color: #080808;
-  top: 0;
-  position: fixed;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-}
-
-.right-div .search-div .button-div {
-  width: 100%;
-  height: 10%;
-  background-color: #b987f3;
-  margin-top: 10%;
-  position: relative;
-  z-index: 2;
-}
-
-.right-div .search-div .search-bar {
-  flex-grow: 1;
-}
-
