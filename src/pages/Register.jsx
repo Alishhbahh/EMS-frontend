@@ -1,7 +1,3 @@
-import "../styles/auth.css";
-import bg2 from "../assets/bg2.jpg";
-import { Input, Button, DatePicker } from "antd";
-import logo from "../assets/logo3.png";
 import {
   UserOutlined,
   LoginOutlined,
@@ -11,8 +7,6 @@ import {
   EyeInvisibleOutlined,
   EyeOutlined,
 } from "@ant-design/icons";
-import { useState } from "react";
-import { ToastContainer, toast } from "react-toastify";
 import {
   emailValidator,
   nameValidator,
@@ -20,15 +14,23 @@ import {
   phoneValidator,
   joiningValidator,
 } from "../utils/validators";
+import "../styles/auth.css";
 import axios from "axios";
 import moment from "moment";
+import { useState } from "react";
+import bg2 from "../assets/bg2.jpg";
+import logo from "../assets/logo3.png";
+import { useNavigate } from "react-router-dom";
+import { Input, Button, DatePicker } from "antd";
+import { ToastContainer, toast } from "react-toastify";
 
 const Register = () => {
+  const navigate = useNavigate();
   const [name, setName] = useState({ value: "", error: "" });
-  const [contactNumber, setContactNumber] = useState({ value: "", error: "" });
   const [email, setEmail] = useState({ value: "", error: "" });
   const [password, setPassword] = useState({ value: "", error: "" });
   const [joiningDate, setJoiningDate] = useState({ value: "", error: "" });
+  const [contactNumber, setContactNumber] = useState({ value: "", error: "" });
 
   const handleRegistration = () => {
     const nameError = nameValidator(name.value);
@@ -46,7 +48,7 @@ const Register = () => {
       setName({ ...name, error: nameError });
       setEmail({ ...email, error: emailError });
       setPassword({ ...password, error: passwordError });
-      setJoiningDate({ ...joiningDate, error: joiningError});
+      setJoiningDate({ ...joiningDate, error: joiningError });
       setContactNumber({
         ...contactNumber,
         error: phoneError,
@@ -54,30 +56,34 @@ const Register = () => {
       return;
     }
 
-    axios.post('http://localhost:8080/api/auth/register', 
-    { name: name.value,
-      contactNumber: contactNumber.value,
-      joiningDate: joiningDate.value,
-      role: "HR",
-      email: email.value,
-      password: password.value
-    }).then(response =>{
-      toast.success(response.data.message);
-      
-      setName({value: '', error : ''})
-      setContactNumber({value: '', error : ''})
-      setEmail({value: '', error : ''})
-      setJoiningDate({value: '', error : ''})
-      setPassword({value: '', error : ''})
-    }
-    ).catch(error =>{
-      toast.error(error.data.message)
-    })
-
+    axios
+      .post("http://localhost:8080/api/auth/register", {
+        name: name.value,
+        contactNumber: contactNumber.value,
+        joiningDate: joiningDate.value,
+        role: "HR",
+        email: email.value,
+        password: password.value,
+      })
+      .then((response) => {
+        if (response.data.message) {
+          toast.success(response.data.message);
+          setName({ value: "", error: "" });
+          setContactNumber({ value: "", error: "" });
+          setEmail({ value: "", error: "" });
+          setJoiningDate({ value: "", error: "" });
+          setPassword({ value: "", error: "" });
+        } else {
+          toast.error(response.data.error);
+        }
+      })
+      .catch((error) => {
+        toast.error(error.message);
+      });
   };
 
   const onChange = (date, dateString) => {
-    setJoiningDate({value: dateString, error: ''})
+    setJoiningDate({ value: dateString, error: "" });
   };
 
   return (
@@ -95,33 +101,35 @@ const Register = () => {
         <div className="sub-container">
           <img src={logo} alt="logo" className="logo" />
           <h6 className="sub-heading">
-            {" "}
             Fill the form below to register as HR.
           </h6>
 
           <Input
-            placeholder="Name"
-            className="input-field"
             size="large"
-            addonBefore={<UserOutlined className="form-icon" />}
+            placeholder="Name"
+            value={name.value}
+            className="input-field"
             status={name.error ? "error" : undefined}
-            onChange={(e) => setName({ value: e.target.value, error: '' })}
+            addonBefore={<UserOutlined className="form-icon" />}
+            onChange={(e) => setName({ value: e.target.value, error: "" })}
           />
           <h6 className="error">{name.error}</h6>
           <Input
-            placeholder="Email"
-            className="input-field"
             size="large"
-            addonBefore={<MailOutlined className="form-icon" />}
+            placeholder="Email"
+            value={email.value}
+            className="input-field"
             status={email.error ? "error" : undefined}
-            onChange={(e) => setEmail({ value: e.target.value, error: ''})}
+            addonBefore={<MailOutlined className="form-icon" />}
+            onChange={(e) => setEmail({ value: e.target.value, error: "" })}
           />
           <h6 className="error">{email.error}</h6>
 
           <Input.Password
+            size="large"
             placeholder="Password"
             className="input-field"
-            size="large"
+            value={password.value}
             iconRender={(visible) =>
               visible ? (
                 <EyeOutlined style={{ color: "white" }} />
@@ -131,32 +139,28 @@ const Register = () => {
             }
             addonBefore={<LockOutlined className="form-icon" />}
             status={password.error ? "error" : undefined}
-            onChange={(e) =>
-              setPassword({ value: e.target.value, error: '' })
-            }
+            onChange={(e) => setPassword({ value: e.target.value, error: "" })}
           />
           <h6 className="error">{password.error}</h6>
 
           <Input
-            placeholder="Contact Number"
-            className="input-field"
             size="large"
-            addonBefore={<PhoneOutlined className="form-icon" />}
+            className="input-field"
+            value={contactNumber.value}
+            placeholder="Contact Number"
             status={contactNumber.error ? "error" : undefined}
+            addonBefore={<PhoneOutlined className="form-icon" />}
             onChange={(e) =>
-              setContactNumber({ value: e.target.value, error: '' })
+              setContactNumber({ value: e.target.value, error: "" })
             }
           />
           <h6 className="error">{contactNumber.error}</h6>
 
           <DatePicker
-            // value={moment(joiningDate.value)}
             value={joiningDate.value ? moment(joiningDate.value) : null}
-         
             onChange={onChange}
           />
           <h6 className="error">{joiningDate.error}</h6>
-
           <Button
             className="register-button"
             icon={<LoginOutlined />}
@@ -169,7 +173,7 @@ const Register = () => {
             <h6 style={{ marginRight: "5px" }}>Already have an account?</h6>
             <h5
               onClick={() => {
-                window.location.href = "/login";
+                navigate("/login");
               }}
             >
               Login

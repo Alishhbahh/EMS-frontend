@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 import { Sidebar } from "../components/Sidebar";
 import { EmployeeList } from "../components/EmployeeList";
-
+import { Avatar } from "../components/Avatar";
 const Dashboard = () => {
   const user = useSelector((state) => state.user);
   const selectedItem = useSelector((state) => state.navItem);
@@ -22,6 +22,7 @@ const Dashboard = () => {
     <div className="auth-container">
       <div className="main-container">
         <Sidebar user={user} />
+        <Avatar user={user} navigate={navigate} />
         {displayedComponent}
       </div>
     </div>

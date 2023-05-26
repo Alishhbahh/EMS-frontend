@@ -37,20 +37,35 @@
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
+.auth-container .emp-container {
+  position: absolute;
+  width: 35%;
+  height: 90%;
+  border-radius: 10px;
+  background-color: #272626e6;
+  backdrop-filter: blur(5px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  backdrop-filter: blur(10px);
+  /* border: 1px solid rgba(91, 212, 236, 0.5); */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  overflow: auto;
+}
+
+
 .sub-heading {
   font-size: 12px;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 .auth-container .title {
-  font-size: 2.5em;
-  background: linear-gradient(to right, #5bd4ec, #00CFC8);
-  -webkit-background-clip: text;
+  font-size: 1.5em;
   background-clip: border-box;
-  -webkit-text-fill-color: transparent;
   margin-bottom: 10px;
   font-variant: small-caps;
-  font-family: 'Gilroy', sans-serif;
+  font-family: 'Courier New', Courier, monospace;
 }
 
 .input-field {
@@ -62,6 +77,25 @@
   margin: 15px;
 
 }
+
+.ant-select{
+  width: 70%;
+  margin: 10px;
+  border-radius: 10px;
+  margin: 15px;
+    background-color: #080808;
+
+}
+.ant-select::placeholder{
+ color: white;
+
+}
+
+.ant-select-selector {
+  background-color: black !important;
+  color: white !important; 
+}
+
 
 .register-button {
   background: linear-gradient(#5bd4ec, #b987f3);
@@ -146,6 +180,19 @@ background-color: #080808 !important;
   align-self: flex-end;
   margin-right: 70px;
 }
+
+.ant-switch{
+  float: right;
+  margin-left: 70%;
+  margin-bottom:30px;
+  margin-top:10px;
+}
+
+.ant-select-arrow{
+  color: white !important;
+}
+
+
 
 @media (max-width : 600px) {
   .register-button {
