@@ -1,4 +1,3 @@
-import axios from "axios";
 import "../styles/auth.css";
 import { useState } from "react";
 import bg2 from "../assets/bg2.jpg";
@@ -8,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import { emailValidator } from "../utils/validators";
 import { LoginOutlined, MailOutlined } from "@ant-design/icons";
+import { forgotPasswordApi } from "../api/auth";
 
 const ForgotPassword = () => {
   const navigate = useNavigate();
@@ -21,18 +21,15 @@ const ForgotPassword = () => {
       return;
     }
 
-    axios
-      .post("http://localhost:8080/api/auth/forgotpass", {
-        email: email.value,
-      })
-      .then((response) => {
-        if (response.data.message) {
-          toast.success(response.data.message);
+    forgotPasswordApi(email.value)
+      .then((data) => {
+        if (data.message) {
+          toast.success(data.message);
           setEmail({ value: "", error: "" });
           // To easily access the link from console. I am using test account in backend to send mail so link is not sent to gmail yet.
-          console.log("link", response.data.link);
+          console.log("link", data.link);
         } else {
-          toast.error(response.data.error);
+          toast.error(data.error);
         }
       })
       .catch((error) => {

@@ -5,7 +5,6 @@ import {
   EyeInvisibleOutlined,
   EyeOutlined,
 } from "@ant-design/icons";
-import axios from "axios";
 import "../styles/auth.css";
 import { useState } from "react";
 import jwt_decode from "jwt-decode";
@@ -15,6 +14,7 @@ import logo from "../assets/logo3.png";
 import { useDispatch } from "react-redux";
 import { addUser } from "../redux/actions";
 import { useNavigate } from "react-router-dom";
+import { loginApi } from "../api/auth";
 import { ToastContainer, toast } from "react-toastify";
 import { emailValidator, passwordValidator } from "../utils/validators";
 
@@ -34,18 +34,14 @@ const Login = () => {
       return;
     }
 
-    axios
-      .post("http://localhost:8080/api/auth/login", {
-        email: email.value,
-        password: password.value,
-      })
-      .then((response) => {
-        if (response.data.message) {
+    loginApi(email.value, password.value)
+      .then((data) => {
+        if (data.message) {
           toast.success("User logged in Successfully");
-          localStorage.setItem("token", response.data.message);
+          localStorage.setItem("token", data.message);
           setEmail({ value: "", error: "" });
           setPassword({ value: "", error: "" });
-          const decoded = jwt_decode(response.data.message);
+          const decoded = jwt_decode(data.message);
           if (decoded) {
             dispatch(addUser(decoded));
             navigate("/dashboard");

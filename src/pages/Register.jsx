@@ -15,11 +15,11 @@ import {
   joiningValidator,
 } from "../utils/validators";
 import "../styles/auth.css";
-import axios from "axios";
 import moment from "moment";
 import { useState } from "react";
 import bg2 from "../assets/bg2.jpg";
 import logo from "../assets/logo3.png";
+import { registerApi } from "../api/auth";
 import { useNavigate } from "react-router-dom";
 import { Input, Button, DatePicker } from "antd";
 import { ToastContainer, toast } from "react-toastify";
@@ -56,25 +56,23 @@ const Register = () => {
       return;
     }
 
-    axios
-      .post("http://localhost:8080/api/auth/register", {
-        name: name.value,
-        contactNumber: contactNumber.value,
-        joiningDate: joiningDate.value,
-        role: "HR",
-        email: email.value,
-        password: password.value,
-      })
-      .then((response) => {
-        if (response.data.message) {
-          toast.success(response.data.message);
+    registerApi(
+      name.value,
+      email.value,
+      password.value,
+      contactNumber.value,
+      joiningDate.value
+    )
+      .then((data) => {
+        if (data.message) {
+          toast.success(data.message);
           setName({ value: "", error: "" });
           setContactNumber({ value: "", error: "" });
           setEmail({ value: "", error: "" });
           setJoiningDate({ value: "", error: "" });
           setPassword({ value: "", error: "" });
         } else {
-          toast.error(response.data.error);
+          toast.error(data.error);
         }
       })
       .catch((error) => {

@@ -4,12 +4,12 @@ import {
   EyeInvisibleOutlined,
   EyeOutlined,
 } from "@ant-design/icons";
-import axios from "axios";
 import "../styles/auth.css";
 import { useState } from "react";
 import bg2 from "../assets/bg2.jpg";
 import { Input, Button } from "antd";
 import logo from "../assets/logo3.png";
+import { resetPasswordApi } from "../api/auth";
 import { ToastContainer, toast } from "react-toastify";
 import { passwordValidator } from "../utils/validators";
 import { useNavigate, useParams } from "react-router-dom";
@@ -27,17 +27,14 @@ const ResetPassword = () => {
       return;
     }
 
-    axios
-      .post(`http://localhost:8080/api/auth/resetpass/${resetToken}`, {
-        newPassword: password.value,
-      })
-      .then((response) => {
-        if (response.data.message) {
-          toast.success(response.data.message);
+    resetPasswordApi(resetToken, password.value)
+      .then((data) => {
+        if (data.message) {
+          toast.success(data.message);
           setPassword({ value: "", error: "" });
           navigate("/login");
         } else {
-          toast.error(response.data.error);
+          toast.error(data.error);
         }
       })
       .catch((error) => {

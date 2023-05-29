@@ -1,4 +1,3 @@
-import axios from "axios";
 import "../styles/dashboard.css";
 import { toast } from "react-toastify";
 import { useEffect, useState } from "react";
@@ -6,6 +5,7 @@ import { Input, Dropdown, Button } from "antd";
 const { Search } = Input;
 import { RegistrationForm } from "./RegistrationForm";
 import { UserOutlined, UserAddOutlined } from "@ant-design/icons";
+import { getEmployeesApi } from "../api/employee";
 
 export const EmployeeList = () => {
   const [employees, setEmployees] = useState([]);
@@ -13,14 +13,13 @@ export const EmployeeList = () => {
   const [searchType, setSearchType] = useState("Everyone");
 
   const getAllEmployees = () => {
-    axios
-      .get("http://localhost:8080/api/emp/getemployees")
-      .then((response) => {
-        setEmployees(response.data.message);
-      })
-      .catch(() => {
-        toast.error("Error fetching employees");
-      });
+    getEmployeesApi().then((data) => {
+      if (data.message) {
+        setEmployees(data.message);
+      } else {
+        toast.error(data.error);
+      }
+    });
   };
 
   useEffect(() => {

@@ -2,7 +2,7 @@ import "../styles/auth.css";
 import "../styles/dashboard.css";
 import { useState } from "react";
 import { UserOutlined } from "@ant-design/icons";
-import { Avatar as Avatarr, Dropdown } from "antd";
+import { Avatar as AntdAvatar, Dropdown } from "antd";
 
 export const Avatar = ({ user, navigate }) => {
   const { name } = user;
@@ -40,13 +40,13 @@ export const Avatar = ({ user, navigate }) => {
 
   return (
     <Dropdown menu={menuProps} placement="bottomLeft" arrow>
-      <Avatarr
+      <AntdAvatar
         size="large"
         className="user-avatar"
         onClick={() => setOpen(!open)}
       >
         {firstLetter}
-      </Avatarr>
+      </AntdAvatar>
     </Dropdown>
   );
 };

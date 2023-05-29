@@ -16,7 +16,6 @@ import {
   deptValidator,
 } from "../utils/validators";
 import "../styles/auth.css";
-import axios from "axios";
 const { Option } = Select;
 import moment from "moment";
 import { Switch } from "antd";
@@ -24,6 +23,8 @@ import { useEffect, useState } from "react";
 import { ProfileOutlined } from "@ant-design/icons";
 import { Input, Button, DatePicker, Select } from "antd";
 import { toast, ToastContainer } from "react-toastify";
+import { getDepartmentsApi } from "../api/employee";
+import { registerEmployeeApi } from "../api/auth";
 
 export const RegistrationForm = ({ setShowForm }) => {
   const [checked, setChecked] = useState("Team Lead");
@@ -65,19 +66,18 @@ export const RegistrationForm = ({ setShowForm }) => {
       return;
     }
 
-    axios
-      .post("http://localhost:8080/api/auth/register", {
-        name: name.value,
-        contactNumber: contactNumber.value,
-        joiningDate: joiningDate.value,
-        role: checked,
-        department: dept.value,
-        email: email.value,
-        password: password.value,
-      })
-      .then((response) => {
-        if (response.data.message) {
-          toast.success(response.data.message);
+    registerEmployeeApi(
+      name.value,
+      email.value,
+      password.value,
+      contactNumber.value,
+      joiningDate.value,
+      dept.value,
+      checked
+    )
+      .then((data) => {
+        if (data.message) {
+          toast.success(data.message);
           setName({ value: "", error: "" });
           setEmail({ value: "", error: "" });
           setPassword({ value: "", error: "" });
@@ -85,7 +85,7 @@ export const RegistrationForm = ({ setShowForm }) => {
           setJoiningDate({ value: "", error: "" });
           setDept({ value: "", error: "" });
         } else {
-          toast.error(response.data.error);
+          toast.error(data.error);
         }
       })
       .catch((error) => {
@@ -94,13 +94,12 @@ export const RegistrationForm = ({ setShowForm }) => {
   };
 
   const getDepartments = () => {
-    axios
-      .get("http://localhost:8080/api/emp/getdepts")
-      .then((response) => {
-        setDepartments(response.data.message);
+    getDepartmentsApi()
+      .then((data) => {
+        setDepartments(data.message);
       })
       .catch((error) => {
-        toast.error(error.data.message);
+        toast.error(error.message);
       });
   };
 
