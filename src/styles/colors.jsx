@@ -1,0 +1,10 @@
+export const darkprimary = "#080808";
+export const lightprimary = "#272626";
+export const backup = "#1A1A2E";
+export const dullblack = "#242424";
+export const purple = "#b987f3";
+export const blue = "#5bd4ec";
+export const skin = "#eecea3";
+export const orange = "#e8a255";
+export const black = "#1f1f1f";
+export const green = "#00CFC8";
