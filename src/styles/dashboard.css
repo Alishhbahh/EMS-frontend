@@ -196,7 +196,6 @@ background-color: #272626 !important;
   background-color: #272626;
   padding: 5px;
   border: 1px solid #272626;
-
 }
 
 .emp-card-div {
@@ -226,8 +225,9 @@ background-color: #272626 !important;
   font-size: 1.5em;
   font-variant: small-caps;
   font-family: 'Courier New', Courier, monospace;
-  MARGIN:5px;
+  margin:5px;
 }
+
 .emp-role{
   color: #525151;
   font-size: 1em;
@@ -238,7 +238,149 @@ background-color: #272626 !important;
   opacity: 0.7;
   width: 100px;
 }
+/* EMPLOYEE INFO */
+.emp-info-div {
+  margin-top: 50px;
+  padding: 30px;
+  background-color: #080808;
+  display: flex;
+  flex:1;
+}
+.emp-profile-div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  /* justify-content: center; */
+  background-color: #272626;
+  padding: 5px;
+  border: 1px solid #272626;
+  width: 100%;
+  height: 40%;
+}
 
+.user-avatar-div{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #272626;
+  padding: 5px;
+  border: 1px solid #272626;
+  width: 20%;
+  height: 100%;
+}
+
+.user-info-div{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  background-color: #272626;
+  padding: 5px;
+  border: 1px solid #272626;
+  width: 70%;
+  height: 100%;
+}
+
+.edit-icon-div{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-end;
+  background-color: #272626;
+  padding: 5px;
+  border: 1px solid #272626;
+  width: 10%;
+  height: 100%;
+}
+
+.edit-icon{
+  background-color: #525151;
+  color: white;
+  border-radius: 30%;
+  padding: 5px;
+  font-size: 1.2em;
+  margin-bottom: 10px;
+}
+
+.emp-info-avatar {
+  margin-right: 2%;
+  margin-top: 1%;
+  top: 0;
+  right: 0;
+  float: right;
+  height: 90px;
+  width: 90px;
+  background: #525151;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.emp-subinfo{
+  color: white;
+  font-size: 1em;
+  font-family: 'Courier New', Courier, monospace;
+  margin:5px;
+}
+
+.ant-modal .ant-modal-body{
+  background-color: #272626;
+  color: white;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+}
+
+.ant-modal .ant-modal-content{
+  background-color: #272626;
+  color: white;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+}
+.ant-modal .ant-modal-title{
+  color: white;
+  align-self: center;
+}
+.ant-modal .ant-modal-close-x{
+  color: gray;
+}
+.ant-modal .ant-modal-footer{
+  display: none;
+}
+
+.ant-modal .ant-modal-header{
+  background-color: #272626;
+  color: white;
+}
+
+.ant-input-group-wrapper {
+  color: white;
+  background-color: #272626;
+  background: #272626;
+}
+
+.ant-input {
+  background-color: #080808;
+  border-color: gray;
+  color: white;
+  height: 30px;
+}
+.ant-input:disabled{
+  background-color: #272626;
+  border-color: gray;
+  color: white;
+  height: 30px;
+}
+
+.ant-input-affix-wrapper {
+  background-color: #272727;
+  border-color: gray;
+  border: 1px solid #272727;
+}
 
 @media screen and (max-width: 600px) {
   .search-div {

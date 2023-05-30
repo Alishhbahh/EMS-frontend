@@ -9,12 +9,17 @@ import { getEmployeesApi } from "../api/employee";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { colors } from "../styles/colors";
 import { Avatar, Divider, List, Card } from "antd";
+import { useDispatch } from "react-redux";
+import { EmployeeInfo } from "./EmployeeInfo";
+import { setSelectedUser } from "../redux/actions";
 
 export const EmployeeList = () => {
+  const dispatch = useDispatch();
   const [employees, setEmployees] = useState([]);
   const [filteredEmployees, setFilteredEmployees] = useState([]);
   const [showForm, setShowForm] = useState(false);
   const [searchType, setSearchType] = useState("Everyone");
+  const [showInfo, setShowInfo] = useState(false);
 
   const getAllEmployees = () => {
     getEmployeesApi().then((data) => {
@@ -105,6 +110,8 @@ export const EmployeeList = () => {
     <div className="content-div">
       {showForm ? (
         <RegistrationForm setShowForm={handleForm} />
+      ) : showInfo ? (
+        <EmployeeInfo />
       ) : (
         <>
           <div className="search-div">
@@ -150,10 +157,17 @@ export const EmployeeList = () => {
                 dataSource={filteredEmployees}
                 renderItem={(item) => (
                   <List.Item>
-                    <Card title={item.title} className="emp-card">
+                    <Card
+                      title={item.title}
+                      className="emp-card"
+                      onClick={() => {
+                        dispatch(setSelectedUser(item));
+                        setShowInfo(true);
+                      }}
+                    >
                       <div className="emp-card-div">
                         <Avatar size="large" className="emp-avatar">
-                          A
+                          {item.name ? item.name[0] : null}
                         </Avatar>
                         <h4 className="emp-name">{item.name}</h4>
                         <p
