@@ -7,7 +7,7 @@ import { useSelector } from "react-redux";
 import { Avatar } from "../components/Avatar";
 import { Sidebar } from "../components/Sidebar";
 import { useNavigate } from "react-router-dom";
-import { darkprimary } from "../styles/colors";
+import { colors } from "../styles/colors";
 import { MenuOutlined } from "@ant-design/icons";
 import { EmployeeList } from "../components/EmployeeList";
 
@@ -37,7 +37,7 @@ const Dashboard = () => {
         <Layout>
           <Header
             style={{
-              background: darkprimary,
+              background: colors.darkprimary,
               display: "flex",
               alignItems: "center",
             }}
@@ -64,7 +64,7 @@ const Dashboard = () => {
           <Content
             style={{
               padding: 24,
-              background: darkprimary,
+              background: colors.darkprimary,
               minHeight: "calc(100vh - 64px)",
             }}
           >

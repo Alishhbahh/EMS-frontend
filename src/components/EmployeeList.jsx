@@ -6,6 +6,9 @@ const { Search } = Input;
 import { RegistrationForm } from "./RegistrationForm";
 import { UserOutlined, UserAddOutlined } from "@ant-design/icons";
 import { getEmployeesApi } from "../api/employee";
+import InfiniteScroll from "react-infinite-scroll-component";
+import { colors } from "../styles/colors";
+import { Avatar, Divider, List, Skeleton, Card, Badge } from "antd";
 
 export const EmployeeList = () => {
   const [employees, setEmployees] = useState([]);
@@ -95,6 +98,53 @@ export const EmployeeList = () => {
             >
               Register Employees
             </Button>
+          </div>
+          <div className="emp-list-div">
+            <InfiniteScroll
+              dataLength={employees.length}
+              hasMore={employees.length < 50}
+              endMessage={<Divider plain>It is all, nothing more 🤐</Divider>}
+              scrollableTarget="scrollableDiv"
+            >
+              <List
+                grid={{
+                  gutter: 16,
+                  xs: 1,
+                  sm: 2,
+                  md: 3,
+                  lg: 4,
+                  xl: 5,
+                  xxl: 3,
+                }}
+                dataSource={employees}
+                renderItem={(item) => (
+                  <List.Item>
+                    <Card title={item.title} className="emp-card">
+                      <div className="emp-card-div">
+                        <Avatar size="large" className="emp-avatar">
+                          A
+                        </Avatar>
+                        <h4 className="emp-name">{item.name}</h4>
+                        <p
+                          className="emp-role"
+                          style={{
+                            backgroundColor:
+                              colors[
+                                item.department &&
+                                colors[item.department.deptName]
+                                  ? item.department.deptName
+                                  : "Others"
+                              ] || colors["Others"],
+                          }}
+                        >
+                          {item.department ? item.department.deptName : "HR"}
+                        </p>
+                      </div>
+                    </Card>
+                  </List.Item>
+                )}
+              />
+            </InfiniteScroll>
           </div>
         </>
       )}
