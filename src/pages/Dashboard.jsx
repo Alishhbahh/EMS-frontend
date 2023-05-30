@@ -34,7 +34,7 @@ const Dashboard = () => {
           collapsed={collapsed}
           onCollapse={toggleCollapsed}
         />
-        <Layout>
+        <Layout style={{ paddingLeft: collapsed ? "80px" : "300px" }}>
           <Header
             style={{
               background: colors.darkprimary,

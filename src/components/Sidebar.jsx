@@ -50,6 +50,7 @@ export const Sidebar = ({ user, collapsed, toggleCollapsed }) => {
       collapsed={collapsed}
       onCollapse={toggleCollapsed}
       width={300}
+      style={{position:"fixed", height:"100vh", zIndex:1}}
     >
       <div className="logo">
         <img src={logo} alt="logo" className="logo-img" />

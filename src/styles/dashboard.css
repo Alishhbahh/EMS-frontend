@@ -376,11 +376,6 @@ background-color: #272626 !important;
   height: 30px;
 }
 
-.ant-input-affix-wrapper {
-  background-color: #272727;
-  border-color: gray;
-  border: 1px solid #272727;
-}
 
 @media screen and (max-width: 600px) {
   .search-div {

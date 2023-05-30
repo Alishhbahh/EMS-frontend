@@ -1,17 +1,17 @@
 import "../styles/dashboard.css";
+const { Search } = Input;
+import { colors } from "../styles/colors";
+import { useDispatch } from "react-redux";
 import { toast } from "react-toastify";
 import { useEffect, useState } from "react";
-import { Input, Dropdown, Button } from "antd";
-const { Search } = Input;
-import { RegistrationForm } from "./RegistrationForm";
-import { UserOutlined, UserAddOutlined } from "@ant-design/icons";
-import { getEmployeesApi } from "../api/employee";
-import InfiniteScroll from "react-infinite-scroll-component";
-import { colors } from "../styles/colors";
-import { Avatar, Divider, List, Card } from "antd";
-import { useDispatch } from "react-redux";
 import { EmployeeInfo } from "./EmployeeInfo";
+import { Input, Dropdown, Button } from "antd";
+import { getEmployeesApi } from "../api/employee";
 import { setSelectedUser } from "../redux/actions";
+import { Avatar, Divider, List, Card } from "antd";
+import { RegistrationForm } from "./RegistrationForm";
+import InfiniteScroll from "react-infinite-scroll-component";
+import { UserOutlined, UserAddOutlined } from "@ant-design/icons";
 
 export const EmployeeList = () => {
   const dispatch = useDispatch();
@@ -36,7 +36,6 @@ export const EmployeeList = () => {
     getAllEmployees();
   }, []);
 
-  // TODO: add search functionality Later on
   const onSearch = (value) => {
     if (value) {
       const filtered = employees.filter((emp) => {
@@ -167,7 +166,7 @@ export const EmployeeList = () => {
                     >
                       <div className="emp-card-div">
                         <Avatar size="large" className="emp-avatar">
-                          {item.name ? item.name[0] : null}
+                          {item.name ? item.name[0].toUpperCase() : null}
                         </Avatar>
                         <h4 className="emp-name">{item.name}</h4>
                         <p

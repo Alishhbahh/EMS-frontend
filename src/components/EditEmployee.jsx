@@ -10,25 +10,19 @@ import "../styles/auth.css";
 import "../styles/dashboard.css";
 import { useState } from "react";
 import { Input, Button } from "antd";
-import { colors } from "../styles/colors";
 import { Modal, DatePicker } from "antd";
 import { useDispatch } from "react-redux";
-import { setSelectedUser } from "../redux/actions";
+import { colors } from "../styles/colors";
 import { editEmployeeApi } from "../api/employee";
+import { setSelectedUser } from "../redux/actions";
 import { ToastContainer, toast } from "react-toastify";
 
 export const EditEmployee = ({ open, user, handleCancel }) => {
   const dispatch = useDispatch();
   const [name, setName] = useState({ value: user?.name, error: "" });
   const [email, setEmail] = useState({ value: user?.email, error: "" });
-  const [joiningDate, setJoiningDate] = useState({
-    value: user?.joiningDate,
-    error: "",
-  });
-  const [contactNumber, setContactNumber] = useState({
-    value: user?.contactNumber,
-    error: "",
-  });
+  const [joiningDate, setJoiningDate] = useState({ value: user?.joiningDate, error: ""});
+  const [contactNumber, setContactNumber] = useState({ value: user?.contactNumber, error: ""});
 
   const onChange = (date, dateString) => {
     setJoiningDate({ value: dateString, error: "" });
@@ -40,7 +34,7 @@ export const EditEmployee = ({ open, user, handleCancel }) => {
         if (data.message) {
           toast.success("User Updated Successfully");
           dispatch(setSelectedUser(data.message));
-            handleCancel();
+          handleCancel();
         } else {
           toast.error("Something went wrong");
         }
@@ -64,7 +58,7 @@ export const EditEmployee = ({ open, user, handleCancel }) => {
         display: "flex",
       }}
     >
-        <ToastContainer />
+      <ToastContainer />
       <Input
         size="large"
         value={name.value}
@@ -106,7 +100,9 @@ export const EditEmployee = ({ open, user, handleCancel }) => {
         size={42}
         icon={<LoginOutlined />}
         className="register-button"
-        onClick={() => handleEdit(name.value, contactNumber.value, joiningDate.value)}
+        onClick={() =>
+          handleEdit(name.value, contactNumber.value, joiningDate.value)
+        }
       >
         Save
       </Button>
