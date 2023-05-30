@@ -8,10 +8,11 @@ import { UserOutlined, UserAddOutlined } from "@ant-design/icons";
 import { getEmployeesApi } from "../api/employee";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { colors } from "../styles/colors";
-import { Avatar, Divider, List, Skeleton, Card, Badge } from "antd";
+import { Avatar, Divider, List, Card } from "antd";
 
 export const EmployeeList = () => {
   const [employees, setEmployees] = useState([]);
+  const [filteredEmployees, setFilteredEmployees] = useState([]);
   const [showForm, setShowForm] = useState(false);
   const [searchType, setSearchType] = useState("Everyone");
 
@@ -19,6 +20,7 @@ export const EmployeeList = () => {
     getEmployeesApi().then((data) => {
       if (data.message) {
         setEmployees(data.message);
+        setFilteredEmployees(data.message);
       } else {
         toast.error(data.error);
       }
@@ -31,11 +33,40 @@ export const EmployeeList = () => {
 
   // TODO: add search functionality Later on
   const onSearch = (value) => {
-    return console.log(value);
+    if (value) {
+      const filtered = employees.filter((emp) => {
+        return emp.name.toLowerCase().includes(value.toLowerCase());
+      });
+      setFilteredEmployees(filtered);
+    } else {
+      setFilteredEmployees(employees);
+    }
   };
+
+  useEffect(() => {
+    handleMenuClick({ key: searchType });
+  }, [searchType]);
 
   const handleMenuClick = (e) => {
     setSearchType(e.key);
+    if (searchType === "HR") {
+      const filtered = employees.filter((emp) => {
+        return emp.role === "HR";
+      });
+      setFilteredEmployees(filtered);
+    } else if (searchType === "Team Lead") {
+      const filtered = employees.filter((emp) => {
+        return emp.role === "Team Lead";
+      });
+      setFilteredEmployees(filtered);
+    } else if (searchType === "Employees") {
+      const filtered = employees.filter((emp) => {
+        return emp.role === "Employee";
+      });
+      setFilteredEmployees(filtered);
+    } else {
+      setFilteredEmployees(employees);
+    }
   };
 
   const items = [
@@ -80,7 +111,7 @@ export const EmployeeList = () => {
             <Search
               placeholder="Search.."
               allowClear
-              onSearch={onSearch}
+              onChange={(e) => onSearch(e.target.value)}
               className="emp-search"
             />
             <Dropdown.Button
@@ -101,8 +132,8 @@ export const EmployeeList = () => {
           </div>
           <div className="emp-list-div">
             <InfiniteScroll
-              dataLength={employees.length}
-              hasMore={employees.length < 50}
+              dataLength={filteredEmployees.length}
+              hasMore={filteredEmployees.length < 50}
               endMessage={<Divider plain>It is all, nothing more 🤐</Divider>}
               scrollableTarget="scrollableDiv"
             >
@@ -116,7 +147,7 @@ export const EmployeeList = () => {
                   xl: 5,
                   xxl: 3,
                 }}
-                dataSource={employees}
+                dataSource={filteredEmployees}
                 renderItem={(item) => (
                   <List.Item>
                     <Card title={item.title} className="emp-card">
