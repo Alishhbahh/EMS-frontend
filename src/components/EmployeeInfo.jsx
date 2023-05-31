@@ -29,32 +29,30 @@ export const EmployeeInfo = () => {
   };
 
   return (
-    <div className="emp-info-div">
-      <div className="emp-profile-div">
-        <div className="user-avatar-div">
-          <Avatar size="large" className="emp-info-avatar">
-            {user.name ? user.name[0].toUpperCase() : null}
-          </Avatar>
-        </div>
-        <div className="user-info-div">
-          <InfoHolder label="Name" value={user.name} />
-          <InfoHolder label="Email" value={user.email} />
-          <InfoHolder label="Contact Number" value={user.contactNumber} />
-          <InfoHolder
-            label="Joining Date"
-            value={moment(user.joiningDate).format("LL")}
-          />
-          <InfoHolder
-            label="Department"
-            value={user.department?.deptName || "HR"}
-          />
-          <InfoHolder label="Role" value={user.name} />
-        </div>
-        <div className="edit-icon-div">
-          <EditOutlined className="edit-icon" onClick={showModal} />
-        </div>
-        <EditEmployee open={open} handleCancel={handleCancel} user={user} />
+    <div className="emp-profile-div">
+      <div className="user-avatar-div">
+        <Avatar size="large" className="emp-info-avatar">
+          {user.name ? user.name[0].toUpperCase() : null}
+        </Avatar>
       </div>
+      <div className="user-info-div">
+        <InfoHolder label="Name" value={user.name} />
+        <InfoHolder label="Email" value={user.email} />
+        <InfoHolder label="Contact Number" value={user.contactNumber} />
+        <InfoHolder
+          label="Joining Date"
+          value={moment(user.joiningDate).format("LL")}
+        />
+        <InfoHolder
+          label="Department"
+          value={user.department?.deptName || "HR"}
+        />
+        <InfoHolder label="Role" value={user.name} />
+      </div>
+      <div className="edit-icon-div">
+        <EditOutlined className="edit-icon" onClick={showModal} />
+      </div>
+      <EditEmployee open={open} handleCancel={handleCancel} user={user} />
     </div>
   );
 };

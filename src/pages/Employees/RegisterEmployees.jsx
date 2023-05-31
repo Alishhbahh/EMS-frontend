@@ -14,19 +14,19 @@ import {
   phoneValidator,
   joiningValidator,
   deptValidator,
-} from "../utils/validators";
-import "../styles/auth.css";
+} from "../../utils/validators";
 const { Option } = Select;
 import moment from "moment";
 import { Switch } from "antd";
+import "../../styles/auth.css";
 import { useEffect, useState } from "react";
 import { ProfileOutlined } from "@ant-design/icons";
-import { Input, Button, DatePicker, Select } from "antd";
+import { registerEmployeeApi } from "../../api/auth";
 import { toast, ToastContainer } from "react-toastify";
-import { getDepartmentsApi } from "../api/employee";
-import { registerEmployeeApi } from "../api/auth";
+import { getDepartmentsApi } from "../../api/employee";
+import { Input, Button, DatePicker, Select } from "antd";
 
-export const RegistrationForm = ({ setShowForm }) => {
+const RegisterEmployee = () => {
   const [checked, setChecked] = useState("Team Lead");
   const [name, setName] = useState({ value: "", error: "" });
   const [contactNumber, setContactNumber] = useState({ value: "", error: "" });
@@ -114,14 +114,6 @@ export const RegistrationForm = ({ setShowForm }) => {
   return (
     <div className="emp-reg-container">
       <ToastContainer />
-      <Button
-        className="close-btn"
-        onClick={() => setShowForm(false)}
-        type="text"
-        danger
-      >
-        ✖
-      </Button>
       <Switch
         className="switch-btn"
         defaultChecked
@@ -212,14 +204,26 @@ export const RegistrationForm = ({ setShowForm }) => {
         onChange={onChange}
       />
       <h6 className="error">{joiningDate.error}</h6>
+      <div className="emp-reg-btn-div">
       <Button
         size={42}
         icon={<LoginOutlined />}
-        className="register-button"
+        className="emp-register-button"
         onClick={() => handleRegistration()}
       >
         Register
       </Button>
+      <Button
+        size={42}
+        icon={<LoginOutlined />}
+        className="emp-cancel-button"
+        onClick={() => handleRegistration()}
+      >
+        Cancel
+      </Button>
+      </div>
     </div>
   );
 };
+
+export default RegisterEmployee;

@@ -3,6 +3,9 @@ import Register from "../pages/Register";
 import Dashboard from "../pages/Dashboard";
 import ForgotPassword from "../pages/ForgotPassword";
 import ResetPassword from "../pages/ResetPassword";
+import Employees from "../pages/Employees/Employees";
+import RegisterEmployee from "../pages/Employees/RegisterEmployees";
+import EmployeeDetails from "../pages/Employees/EmployeeDetails";
 
 const publicRoutes = [
   { path: "/login", element: <Login /> },
@@ -11,6 +14,11 @@ const publicRoutes = [
   { path: "reset-password/:resetToken", element: <ResetPassword /> },
 ];
 
-const privateRoutes = [{ path: "/dashboard", element: <Dashboard /> }];
+const privateRoutes = [
+  { path: "/dashboard", element: <Dashboard /> },
+  { path: "/employees", element: <Employees /> },
+  { path: "/employee/:id", element: <EmployeeDetails /> },
+  { path: "/registeremployee", element: <RegisterEmployee /> },
+];
 
 export { publicRoutes, privateRoutes };
