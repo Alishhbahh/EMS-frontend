@@ -1,5 +1,5 @@
-import "../styles/auth.css";
-import "../styles/dashboard.css";
+import "../../styles/auth.css";
+import "../../styles/dashboard.css";
 import { useState } from "react";
 import { UserOutlined } from "@ant-design/icons";
 import { Avatar as AntdAvatar, Dropdown } from "antd";

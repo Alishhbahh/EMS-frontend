@@ -92,16 +92,16 @@
 .register-button {
   background: linear-gradient(#5bd4ec, #b987f3);
   color: white;
-  width: 30%;
+  width: 70%;
   height: 6%;
   margin: 5px;
   text-decoration: none;
 }
 
-.register-button:focus {
+.register-button:hover {
   background: linear-gradient(#5bd4ec, #b987f3);
   color: white;
-  width: 30%;
+  width: 70%;
   height: 6%;
   text-decoration: none;
 }
@@ -177,6 +177,17 @@
   margin-left: 70%;
   margin-bottom: 30px;
   margin-top: 10px;
+}
+
+.ant-radio-group {
+  margin: 10px;
+  margin-bottom: 30px;
+  color: white;
+}
+.ant-radio-group .ant-radio-wrapper {
+  color: white;
+  font-family: 'Courier New', Courier, monospace;
+  margin: 20px;
 }
 
 .ant-select-arrow {

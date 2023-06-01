@@ -2,14 +2,14 @@ const { Search } = Input;
 import "../../styles/auth.css";
 import "../../styles/dashboard.css";
 import { toast } from "react-toastify";
-import { colors } from "../../styles/colors";
 import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { colors } from "../../styles/colors";
 import { Input, Dropdown, Button } from "antd";
+import { useNavigate } from "react-router-dom";
+import { Avatar, Divider, List, Card } from "antd";
 import { getEmployeesApi } from "../../api/employee";
 import { setSelectedUser } from "../../redux/actions";
-import { Avatar, Divider, List, Card } from "antd";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { UserOutlined, UserAddOutlined } from "@ant-design/icons";
 

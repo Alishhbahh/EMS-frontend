@@ -1,5 +1,5 @@
 import "../../styles/dashboard.css";
-import { EmployeeInfo } from "../../components/EmployeeInfo";
+import { EmployeeInfo } from "../../components/Employees/EmployeeInfo";
 
 const EmployeeDetails = () => {
   return (

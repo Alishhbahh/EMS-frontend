@@ -1,10 +1,10 @@
 /* eslint-disable prettier/prettier */
 /* eslint-disable react-hooks/exhaustive-deps */
 const { Sider } = Layout;
-import "../styles/auth.css";
-import "../styles/dashboard.css";
+import "../../styles/auth.css";
+import "../../styles/dashboard.css";
 import { Menu, Layout } from "antd";
-import logo from "../assets/logo3.png";
+import logo from "../../assets/logo3.png";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import TaskIcon from "@mui/icons-material/Task";

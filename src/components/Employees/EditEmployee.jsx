@@ -6,15 +6,15 @@ import {
   LoginOutlined,
 } from "@ant-design/icons";
 import moment from "moment";
-import "../styles/auth.css";
-import "../styles/dashboard.css";
+import "../../styles/auth.css";
+import "../../styles/dashboard.css";
 import { useState } from "react";
 import { Input, Button } from "antd";
 import { Modal, DatePicker } from "antd";
 import { useDispatch } from "react-redux";
-import { colors } from "../styles/colors";
-import { editEmployeeApi } from "../api/employee";
-import { setSelectedUser } from "../redux/actions";
+import { colors } from "../../styles/colors";
+import { editEmployeeApi } from "../../api/employee";
+import { setSelectedUser } from "../../redux/actions";
 import { ToastContainer, toast } from "react-toastify";
 
 export const EditEmployee = ({ open, user, handleCancel }) => {

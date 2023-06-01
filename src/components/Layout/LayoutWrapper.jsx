@@ -1,13 +1,13 @@
-import "../styles/auth.css";
+import "../../styles/auth.css";
 import { Layout } from "antd";
-import "../styles/dashboard.css";
 import { useState } from "react";
 const { Header, Content } = Layout;
-import { colors } from "../styles/colors";
+import { Avatar } from "./Avatar";
+import { Sidebar } from "./Sidebar";
+import "../../styles/dashboard.css";
 import { useSelector } from "react-redux";
-import { Avatar } from "../components/Avatar";
+import { colors } from "../../styles/colors";
 import { useNavigate } from "react-router-dom";
-import { Sidebar } from "../components/Sidebar";
 
 export const LayoutWrapper = ({ children }) => {
   const navigate = useNavigate();
