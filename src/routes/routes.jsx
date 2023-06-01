@@ -4,6 +4,7 @@ import Dashboard from "../pages/Dashboard";
 import ResetPassword from "../pages/ResetPassword";
 import Employees from "../pages/Employees/Employees";
 import ForgotPassword from "../pages/ForgotPassword";
+import Attendance from "../pages/Atteandance";
 import EmployeeDetails from "../pages/Employees/EmployeeDetails";
 import RegisterEmployee from "../pages/Employees/RegisterEmployees";
 
@@ -23,6 +24,7 @@ const privateRoutes = [
   { path: "/employees", element: <Employees /> },
   { path: "/employee/:id", element: <EmployeeDetails /> },
   { path: "/registeremployee", element: <RegisterEmployee /> },
+  { path: "/attendance", element: <Attendance /> },
 ];
 
 export { publicRoutes, privateRoutes };

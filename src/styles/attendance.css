@@ -1,0 +1,107 @@
+.attendance-div{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 75%;
+    background-color: #272626;
+    border-radius: 30px;
+    margin: 10px;
+}
+
+.date-div{
+    display: flex;
+    flex-direction: row;
+    width: 25%;
+    height: 100%;
+    background-color: #272626;
+    border-radius: 30px;
+    margin: 10px;
+    padding: 20px;
+}
+
+.atdc-title{
+    font-size: 1.5rem;
+    font-family: 'Courier New', Courier, monospace;
+    font-style: bold;
+}
+
+.atdc-date{
+    font-size: 1.2rem;
+    font-family: 'Courier New', Courier, monospace;
+    font-style: bold;
+    margin: 10px;
+    background-color: #272626;
+    width: 30%;
+    align-self: center;
+    border-radius: 10px;
+    color: white;
+    padding: 3px;
+    opacity: 0.8;
+}
+
+.atdc-buttons-div{
+    width: 90%;
+    height: 90%;
+    align-self: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: 10px;
+}
+
+.clock-in-button{
+    width:30%;
+    height: 60%;
+    border-radius: 20px;
+    margin: 5px;
+    font-size: 20px;
+    margin-top:15px;
+    background: linear-gradient(to right, #b987f3, #5bd4ec);
+    opacity: 0.8;
+    color: white;
+    overflow: auto;
+}
+
+.ant-btn:hover,
+.ant-btn:focus {
+  color: white !important; /* Change the text color to red on hover */
+}
+
+.ant-btn:hover:disabled,
+.ant-btn:focus:disabled {
+  color: gray !important; /* Change the text color to red on hover */
+}
+
+.atdc-day{
+    margin-bottom: 0px;
+    font-size: 30px;
+    align-self: flex-start;
+    font-family: 'Courier New', Courier, monospace;
+}
+.atdc-year{
+    margin-bottom: 0px;
+    font-size: 30px;
+    align-self: flex-end;
+    font-family: 'Courier New', Courier, monospace;
+}
+.atdc-calendar-img{
+    width: 100px;
+    height: 100px;
+    align-self: center;
+    justify-self: center;
+}
+
+.date-overlay{
+    font-size: 110px;
+    font-weight: bold;
+    align-self: center;
+    justify-self: center;
+    margin-top: 15%;
+}
+.date-content{
+    flex-direction: row;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+}
