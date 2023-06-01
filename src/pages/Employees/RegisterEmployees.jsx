@@ -14,27 +14,30 @@ import {
   phoneValidator,
   joiningValidator,
   deptValidator,
-} from "../utils/validators";
-import "../styles/auth.css";
+} from "../../utils/validators";
 const { Option } = Select;
 import moment from "moment";
-import { Switch } from "antd";
+import { Radio } from "antd";
+import "../../styles/auth.css";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { ProfileOutlined } from "@ant-design/icons";
-import { Input, Button, DatePicker, Select } from "antd";
+import { registerEmployeeApi } from "../../api/auth";
 import { toast, ToastContainer } from "react-toastify";
-import { getDepartmentsApi } from "../api/employee";
-import { registerEmployeeApi } from "../api/auth";
+import { getDepartmentsApi } from "../../api/employee";
+import { Input, Button, DatePicker, Select } from "antd";
 
-export const RegistrationForm = ({ setShowForm }) => {
+const RegisterEmployee = () => {
+  const navigate = useNavigate();
+  const [departments, setDepartments] = useState([]);
+
   const [checked, setChecked] = useState("Team Lead");
   const [name, setName] = useState({ value: "", error: "" });
-  const [contactNumber, setContactNumber] = useState({ value: "", error: "" });
+  const [dept, setDept] = useState({ value: "", error: "" });
   const [email, setEmail] = useState({ value: "", error: "" });
   const [password, setPassword] = useState({ value: "", error: "" });
   const [joiningDate, setJoiningDate] = useState({ value: "", error: "" });
-  const [dept, setDept] = useState({ value: "", error: "" });
-  const [departments, setDepartments] = useState([]);
+  const [contactNumber, setContactNumber] = useState({ value: "", error: "" });
 
   const handleRegistration = () => {
     const deptError = deptValidator(dept.value);
@@ -114,26 +117,18 @@ export const RegistrationForm = ({ setShowForm }) => {
   return (
     <div className="emp-reg-container">
       <ToastContainer />
-      <Button
-        className="close-btn"
-        onClick={() => setShowForm(false)}
-        type="text"
-        danger
-      >
-        ✖
-      </Button>
-      <Switch
-        className="switch-btn"
-        defaultChecked
+      <Radio.Group
+        style={{
+          color: "white",
+        }}
         onChange={() =>
           setChecked(checked === "Employee" ? "Team Lead" : "Employee")
         }
-      />
-      {checked === "Team Lead" ? (
-        <h6 className="title">Team Lead Registration</h6>
-      ) : (
-        <h6 className="title">Employee Registration</h6>
-      )}
+        value={checked}
+      >
+        <Radio value={"Team Lead"}>Register Team Lead</Radio>
+        <Radio value={"Employee"}>Register Employee</Radio>
+      </Radio.Group>
       <Input
         size="large"
         value={name.value}
@@ -212,14 +207,26 @@ export const RegistrationForm = ({ setShowForm }) => {
         onChange={onChange}
       />
       <h6 className="error">{joiningDate.error}</h6>
-      <Button
-        size={42}
-        icon={<LoginOutlined />}
-        className="register-button"
-        onClick={() => handleRegistration()}
-      >
-        Register
-      </Button>
+      <div className="emp-reg-btn-div">
+        <Button
+          size={42}
+          icon={<LoginOutlined />}
+          className="emp-register-button"
+          onClick={() => handleRegistration()}
+        >
+          Register
+        </Button>
+        <Button
+          size={42}
+          icon={<LoginOutlined />}
+          className="emp-cancel-button"
+          onClick={() => navigate("/employees")}
+        >
+          Cancel
+        </Button>
+      </div>
     </div>
   );
 };
+
+export default RegisterEmployee;

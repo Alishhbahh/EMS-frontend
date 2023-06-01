@@ -18,14 +18,22 @@ background-color: #272626 !important;
   background-image: linear-gradient(to right, #b987f3, #5bd4ec);
   height: 40%;
 }
+:where(.css-dev-only-do-not-override-15rg2km).ant-menu-dark .ant-menu-item-selected, :where(.css-dev-only-do-not-override-15rg2km).ant-menu-dark>.ant-menu .ant-menu-item-selected {
+  color: #fff;
+  padding-top: 10px;
+}
 .ant-menu-item{
   color: white !important;
+  align-self: center;
   height: 90px;
 }
 .ant-menu-item:hover{
   color: white !important;
   background-color: #272626 !important;
   height: 40%;
+}
+.ant-layout{
+  font-size: large;
 }
 .logo {
   display: flex;
@@ -38,7 +46,20 @@ background-color: #272626 !important;
   max-height: 100%;
   align-self: center;
 }
+.ant-layout-sider-trigger{
+  display: none;
+}
 
+:where(.css-dev-only-do-not-override-15rg2km).ant-menu-inline.ant-menu-root .ant-menu-item > .ant-menu-title-content,
+:where(.css-dev-only-do-not-override-15rg2km).ant-menu-inline.ant-menu-root .ant-menu-submenu-title > .ant-menu-title-content {
+  display: flex; /* Set the display to flex */
+  align-items: center; /* Center the flex items vertically */
+}
+
+:where(.css-dev-only-do-not-override-15rg2km).ant-menu-dark .ant-menu-item-selected, :where(.css-dev-only-do-not-override-15rg2km).ant-menu-dark>.ant-menu .ant-menu-item-selected {
+  align-self: center;
+ }
+ 
  /* HEADER */
 
 .user-avatar {
@@ -46,7 +67,7 @@ background-color: #272626 !important;
   margin-top: 1%;
   top: 0;
   right: 0;
-  position: fixed;
+  float: right;
   background: linear-gradient(#b987f3, #5bd4ec);
 }
 
@@ -74,7 +95,7 @@ background-color: #272626 !important;
 .emp-search {
   width: 65%;
   border-radius: 90px;
-  margin-left: 5%;
+  margin-left: 2%;
   z-index: 1;
 }
 
@@ -130,19 +151,20 @@ background-color: #272626 !important;
   background: linear-gradient(#5bd4ec, #b987f3);
   color: white;
   width: 35%;
-  height: 70%;
-  margin: 5px;
+  height: 90%;
+  margin-right: 3%;
+  /* margin: 5px; */
   text-decoration: none;
   overflow: hidden;
   right: 0;
 }
 
 /* EMPLOYEE REGISTRATION */
-.content-div .emp-reg-container{
+.emp-reg-container{
   width: 50%;
   height: 95%;
   align-self: center;
-  background-color: #272626e6;
+  background-color: #272626;
   justify-self: center;
   border-radius: 30px;
   padding: 15px;
@@ -150,12 +172,14 @@ background-color: #272626 !important;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  align-self: center;
 }
 
 .emp-reg-container .close-btn{
   color: gray;
   align-self: center;
 }
+
 .emp-reg-container .ant-input {
   background-color: black;
   border-color: gray;
@@ -180,6 +204,232 @@ background-color: #272626 !important;
   font-variant: small-caps;
   font-family: 'Courier New', Courier, monospace;
 }
+
+.emp-reg-btn-div{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 80%;
+}
+.emp-register-button {
+  background: linear-gradient(to left,#5bd4ec, #b987f3);
+  color: white;
+  width: 38%;
+  margin: 5px;
+  text-decoration: none;
+  overflow: hidden;
+  left: 0;
+}
+.emp-cancel-button {
+  background: linear-gradient(to left,gray, #272626);
+  color: white;
+  width: 38%;
+  margin: 5px;
+  text-decoration: none;
+  overflow: hidden;
+  left: 0;
+}
+
+/* EMPLOYEE LIST */
+
+.emp-list-div {
+  margin-top: 50px;
+  padding: 30px;
+  background-color: #080808;
+}
+.emp-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #272626;
+  padding: 5px;
+  border: 1px solid #272626;
+  cursor: pointer;
+}
+
+.emp-card-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #272626;
+  padding: 5px;
+}
+.emp-avatar {
+  margin-right: 2%;
+  margin-top: 1%;
+  top: 0;
+  right: 0;
+  float: right;
+  height: 60px;
+  width: 60px;
+  background: #525151;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.emp-name{
+  color: white;
+  font-size: 1.5em;
+  font-variant: small-caps;
+  font-family: 'Courier New', Courier, monospace;
+  margin:5px;
+}
+
+.emp-role{
+  color: #525151;
+  font-size: 1em;
+  font-family: 'Courier New', Courier, monospace;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 20px;
+  opacity: 0.7;
+  width: 100px;
+}
+/* EMPLOYEE INFO */
+.emp-info-div {
+  margin-top: 50px;
+  padding: 30px;
+  background-color: #080808;
+  display: flex;
+  flex:1;
+}
+.emp-profile-div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  /* justify-content: center; */
+  background-color: #272626;
+  padding: 5px;
+  border: 1px solid #272626;
+  width: 100%;
+  height: 40%;
+}
+span.ant-avatar-string {
+  font-size: 25px;
+}
+
+.user-avatar-div{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #272626;
+  padding: 5px;
+  border: 1px solid #272626;
+  width: 20%;
+  height: 100%;
+}
+
+.user-info-div{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  background-color: #272626;
+  padding: 5px;
+  border: 1px solid #272626;
+  width: 70%;
+  height: 100%;
+}
+
+.edit-icon-div{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-end;
+  background-color: #272626;
+  padding: 5px;
+  border: 1px solid #272626;
+  width: 10%;
+  height: 100%;
+}
+
+.edit-icon{
+  background-color: #525151;
+  color: white;
+  border-radius: 30%;
+  padding: 5px;
+  font-size: 1.2em;
+  margin-bottom: 10px;
+}
+
+.emp-info-avatar {
+  margin-right: 2%;
+  margin-top: 1%;
+  top: 0;
+  right: 0;
+  float: right;
+  height: 90px;
+  width: 90px;
+  background: #525151;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.emp-subinfo{
+  color: white;
+  font-size: 1em;
+  font-family: 'Courier New', Courier, monospace;
+  margin:5px;
+}
+
+.ant-modal .ant-modal-body{
+  background-color: #272626;
+  color: white;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+}
+
+.ant-modal .ant-modal-content{
+  background-color: #272626;
+  color: white;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+}
+.ant-modal .ant-modal-title{
+  color: white;
+  align-self: center;
+}
+.ant-modal .ant-modal-close-x{
+  color: gray;
+}
+.ant-modal .ant-modal-footer{
+  display: none;
+}
+
+.ant-modal .ant-modal-header{
+  background-color: #272626;
+  color: white;
+}
+
+.ant-input-group-wrapper {
+  color: white;
+  background-color: #272626;
+  background: #272626;
+}
+
+.ant-input {
+  background-color: #080808;
+  border-color: gray;
+  color: white;
+  height: 30px;
+}
+.ant-input:disabled{
+  background-color: #272626;
+  border-color: gray;
+  color: white;
+  height: 30px;
+}
+
+
 
 @media screen and (max-width: 600px) {
   .search-div {

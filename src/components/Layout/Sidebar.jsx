@@ -1,20 +1,20 @@
 /* eslint-disable prettier/prettier */
 /* eslint-disable react-hooks/exhaustive-deps */
 const { Sider } = Layout;
-import "../styles/auth.css";
-import "../styles/dashboard.css";
+import "../../styles/auth.css";
+import "../../styles/dashboard.css";
 import { Menu, Layout } from "antd";
-import logo from "../assets/logo3.png";
+import logo from "../../assets/logo3.png";
+import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import TaskIcon from "@mui/icons-material/Task";
 import HomeIcon from "@mui/icons-material/Home";
 import TodayIcon from "@mui/icons-material/Today";
-import { selectNavItem } from "../redux/actions";
 import PeopleIcon from "@mui/icons-material/People";
-import { useDispatch, useSelector } from "react-redux";
 
-export const Sidebar = ({ user, collapsed, toggleCollapsed }) => {
+export const Sidebar = ({ user, collapsed,  onMouseEnter, onMouseLeave}) => {
   const { role } = user;
-  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const selectedItem = useSelector((state) => state.navItem); // this is the selected item in the sidebar
 
   const getItem = (label, key, icon) => {
@@ -40,7 +40,17 @@ export const Sidebar = ({ user, collapsed, toggleCollapsed }) => {
   ];
 
   const handleItemClick = (item) => {
-    dispatch(selectNavItem(item.key));
+    if(item===undefined){
+      navigate("/dashboard");
+    } else if(item.key === "employees"){
+      navigate("/employees");
+    }
+    else if(item.key === "dashboard"){
+      navigate("/dashboard");
+    }
+    else{
+      navigate("/dashboard");
+    }
   };
 
   return (
@@ -48,8 +58,10 @@ export const Sidebar = ({ user, collapsed, toggleCollapsed }) => {
       theme="dark"
       collapsible
       collapsed={collapsed}
-      onCollapse={toggleCollapsed}
-      width={300}
+      width={250}
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
+      style={{position:"fixed", height:"100vh", zIndex:1}}
     >
       <div className="logo">
         <img src={logo} alt="logo" className="logo-img" />
