@@ -1,9 +1,15 @@
-import { STORE_USER, SELECT_NAV_ITEM, SELECT_USER } from "./actiontypes";
+import {
+  STORE_USER,
+  SELECT_NAV_ITEM,
+  SELECT_USER,
+  SET_SELECTED_MONTH,
+} from "./actiontypes";
 
 const INIT_STATE = {
   user: "",
   navItem: "dashboard",
   selectedUser: "",
+  selectedMonth: new Date().toLocaleString("default", { month: "long" }),
 };
 
 const reducer = (state = INIT_STATE, action) => {
@@ -22,6 +28,11 @@ const reducer = (state = INIT_STATE, action) => {
       return {
         ...state,
         selectedUser: action.payload,
+      };
+    case SET_SELECTED_MONTH:
+      return {
+        ...state,
+        selectedMonth: action.payload,
       };
     default:
       return state;

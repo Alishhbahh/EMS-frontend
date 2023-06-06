@@ -4,7 +4,7 @@ import Dashboard from "../pages/Dashboard";
 import ResetPassword from "../pages/ResetPassword";
 import Employees from "../pages/Employees/Employees";
 import ForgotPassword from "../pages/ForgotPassword";
-import Attendance from "../pages/Atteandance";
+import Attendance from "../pages/Attendance";
 import EmployeeDetails from "../pages/Employees/EmployeeDetails";
 import RegisterEmployee from "../pages/Employees/RegisterEmployees";
 

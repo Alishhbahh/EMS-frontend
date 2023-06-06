@@ -72,7 +72,6 @@ const Attendance = () => {
       .then(() => {
         setClockedOut(true);
         toast.success("Clocked Out Successfully");
-        // dispatch(setClockedOut(true));
       })
       .catch((err) => {
         toast.error(err.message);
@@ -89,9 +88,9 @@ const Attendance = () => {
     });
   };
 
-  useEffect(() => {
-    getAttendanceHistory();
-  }, []);
+  // useEffect(() => {
+  //   getAttendanceHistory();
+  // }, []);
 
   return (
     <div className="content-div">
@@ -170,7 +169,7 @@ const Attendance = () => {
           flexDirection: "column",
         }}
       >
-        <AttendanceHistory attendance={attendanceHistory} />
+        <AttendanceHistory attendance={attendanceHistory} user={user} />
       </div>
     </div>
   );

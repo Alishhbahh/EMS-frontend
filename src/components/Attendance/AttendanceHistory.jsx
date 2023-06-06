@@ -4,8 +4,95 @@ import { List, Card } from "antd";
 import "../../styles/dashboard.css";
 import { colors } from "../../styles/colors";
 import { ClockCircleOutlined } from "@ant-design/icons";
+import { Dropdown } from "antd";
+import { useState, useEffect } from "react";
+import { getAttedanceApi } from "../../api/attendance";
 
-export const AttendanceHistory = ({ attendance }) => {
+import { useSelector, useDispatch } from "react-redux";
+import { setSelectedMonth } from "../../redux/actions";
+
+export const AttendanceHistory = ({ user }) => {
+  const [selectedMonth, setSelectedMonth] = useState(
+    new Date().toLocaleString("default", { month: "long" })
+  );
+  const [attendance, setAttendance] = useState([]);
+  const handleMonthSelection = (e) => {
+    setSelectedMonth(e.key);
+  };
+
+  const getAttendanceHistory = () => {
+    const formattedMonth = new Date(
+      selectedMonth + " 1, 2000"
+    ).toLocaleDateString("en-GB", { month: "2-digit" });
+    getAttedanceApi(user.id, formattedMonth).then((data) => {
+      if (data.message) {
+        setAttendance(data.message);
+      } else {
+        console.log(data);
+      }
+    });
+  };
+
+  useEffect(() => {
+    getAttendanceHistory();
+  }, [selectedMonth]);
+
+  const items = [
+    {
+      label: "January",
+      key: "January",
+    },
+    {
+      label: "February",
+      key: "February",
+    },
+    {
+      label: "March",
+      key: "March",
+    },
+    {
+      label: "April",
+      key: "April",
+    },
+    {
+      label: "May",
+      key: "May",
+    },
+    {
+      label: "June",
+      key: "June",
+    },
+    {
+      label: "July",
+      key: "July",
+    },
+    {
+      label: "August",
+      key: "August",
+    },
+    {
+      label: "September",
+      key: "September",
+    },
+    {
+      label: "October",
+      key: "October",
+    },
+    {
+      label: "November",
+      key: "November",
+    },
+    {
+      label: "December",
+      key: "December",
+    },
+  ];
+
+  const menuProps = {
+    items,
+    onClick: handleMonthSelection,
+  };
+
   const getStatus = (clockInTime) => {
     if (!clockInTime) {
       return "Absent";
@@ -16,9 +103,17 @@ export const AttendanceHistory = ({ attendance }) => {
   };
   return (
     <>
-      <h6 style={{ alignSelf: "flex-start", fontSize: "22px" }}>
-        Attendance History
-      </h6>
+      <div className="atdc-history-title-div">
+        <div className="vertical-line"></div>
+        <h6 className="atdc-history-title">History</h6>
+        <Dropdown.Button
+          className="type-dropdown"
+          overlayStyle={{ maxHeight: "200px" }}
+          menu={menuProps}
+        >
+          {selectedMonth}
+        </Dropdown.Button>
+      </div>
       <List
         grid={{
           gutter: 16,
