@@ -50,7 +50,8 @@ export const LayoutWrapper = ({ children }) => {
           </Header>
           <Content
             style={{
-              padding: 24,
+              paddingLeft: "20px",
+              paddingRight: "20px",
               background: colors.darkprimary,
               minHeight: "calc(100vh - 64px)",
               display: "flex",

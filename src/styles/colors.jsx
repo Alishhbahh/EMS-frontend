@@ -18,4 +18,7 @@ export const colors = {
   HR: "#eecea3",
   Sales: "#c89ed3",
   Marketing: "#b987f3",
+  Late: "#e8a255",
+  Absent: "#f3cfc6",
+  OnTime: "#a9d39e",
 };
