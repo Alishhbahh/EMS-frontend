@@ -1,10 +1,10 @@
 import Login from "../pages/Login";
 import Register from "../pages/Register";
 import Dashboard from "../pages/Dashboard";
+import Attendance from "../pages/Attendance";
 import ResetPassword from "../pages/ResetPassword";
 import Employees from "../pages/Employees/Employees";
 import ForgotPassword from "../pages/ForgotPassword";
-import Attendance from "../pages/Attendance";
 import EmployeeDetails from "../pages/Employees/EmployeeDetails";
 import RegisterEmployee from "../pages/Employees/RegisterEmployees";
 
