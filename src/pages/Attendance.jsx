@@ -1,25 +1,23 @@
-import "../styles/dashboard.css";
-import "../styles/attendance.css";
-import { toast, ToastContainer } from "react-toastify";
-import { useEffect, useState } from "react";
-import { Button } from "antd";
 import {
   clockInApi,
   clockOutApi,
-  getAttedanceApi,
   getCurrentAttendanceApi,
 } from "../api/attendance";
-import { ClockCircleOutlined, ScheduleOutlined } from "@ant-design/icons";
+import { Button } from "antd";
+import "../styles/dashboard.css";
+import "../styles/attendance.css";
 import { useSelector } from "react-redux";
-import { AttendanceHistory } from "../components/Attendance/AttendanceHistory";
 import { colors } from "../styles/colors";
+import { useEffect, useState } from "react";
+import { toast, ToastContainer } from "react-toastify";
+import { ClockCircleOutlined, ScheduleOutlined } from "@ant-design/icons";
+import { AttendanceHistory } from "../components/Attendance/AttendanceHistory";
 
 const Attendance = () => {
   const user = useSelector((state) => state.user);
-  const [currentTime, setCurrentTime] = useState(new Date());
-  const [attendanceHistory, setAttendanceHistory] = useState([]);
   const [clockedIn, setClockedIn] = useState(false);
   const [clockedOut, setClockedOut] = useState(false);
+  const [currentTime, setCurrentTime] = useState(new Date());
 
   useEffect(() => {
     getCurrentAttendanceApi(currentTime.toLocaleDateString(), user.id).then(
@@ -78,20 +76,6 @@ const Attendance = () => {
       });
   };
 
-  const getAttendanceHistory = () => {
-    getAttedanceApi(user.id).then((data) => {
-      if (data.message) {
-        setAttendanceHistory(data.message);
-      } else {
-        toast.error(data.error);
-      }
-    });
-  };
-
-  // useEffect(() => {
-  //   getAttendanceHistory();
-  // }, []);
-
   return (
     <div className="content-div">
       <div
@@ -149,7 +133,7 @@ const Attendance = () => {
             <Button
               icon={<ScheduleOutlined style={{ fontSize: "25px" }} />}
               className="clock-in-button"
-              onClick={() => console.log("hi")}
+              onClick={() => console.log("HANDLE THIS DURING LEAVE MANAGEMENT")}
             >
               Request Leave
             </Button>
@@ -169,7 +153,7 @@ const Attendance = () => {
           flexDirection: "column",
         }}
       >
-        <AttendanceHistory attendance={attendanceHistory} user={user} />
+        <AttendanceHistory userid={user.id} />
       </div>
     </div>
   );

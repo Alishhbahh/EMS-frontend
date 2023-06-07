@@ -290,11 +290,12 @@ background-color: #272626 !important;
 }
 /* EMPLOYEE INFO */
 .emp-info-div {
-  margin-top: 50px;
-  padding: 30px;
+  margin-top: 0px;
+  padding: 10px;
   background-color: #080808;
   display: flex;
   flex:1;
+  border-radius: 20px;
 }
 .emp-profile-div {
   display: flex;
@@ -305,7 +306,8 @@ background-color: #272626 !important;
   padding: 5px;
   border: 1px solid #272626;
   width: 100%;
-  height: 40%;
+  height: 100%;
+  border-radius: 20px;
 }
 span.ant-avatar-string {
   font-size: 25px;

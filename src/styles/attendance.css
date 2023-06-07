@@ -184,7 +184,7 @@ color: white;
     margin-left: 20px;
     border-radius: 10px;
 }
-.type-dropdown {
+.month-dropdown {
     margin-left: 80%;
     height: 40px;
     float: right;
@@ -192,7 +192,7 @@ color: white;
     justify-self: flex-end;
   }
   
-  .type-dropdown .ant-btn {
+  .month-dropdown .ant-btn {
     max-height: 400px;
     background-color: #080808;
     background: #080808;

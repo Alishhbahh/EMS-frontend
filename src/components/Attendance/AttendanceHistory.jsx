@@ -1,21 +1,18 @@
 import moment from "moment";
 import "../../styles/auth.css";
-import { List, Card } from "antd";
 import "../../styles/dashboard.css";
+import { List, Card, Dropdown } from "antd";
+import { useState, useEffect } from "react";
 import { colors } from "../../styles/colors";
 import { ClockCircleOutlined } from "@ant-design/icons";
-import { Dropdown } from "antd";
-import { useState, useEffect } from "react";
-import { getAttedanceApi } from "../../api/attendance";
+import { getAttendanceApi } from "../../api/attendance";
 
-import { useSelector, useDispatch } from "react-redux";
-import { setSelectedMonth } from "../../redux/actions";
-
-export const AttendanceHistory = ({ user }) => {
+export const AttendanceHistory = ({ userid }) => {
+  const [attendance, setAttendance] = useState([]);
   const [selectedMonth, setSelectedMonth] = useState(
     new Date().toLocaleString("default", { month: "long" })
   );
-  const [attendance, setAttendance] = useState([]);
+
   const handleMonthSelection = (e) => {
     setSelectedMonth(e.key);
   };
@@ -24,11 +21,9 @@ export const AttendanceHistory = ({ user }) => {
     const formattedMonth = new Date(
       selectedMonth + " 1, 2000"
     ).toLocaleDateString("en-GB", { month: "2-digit" });
-    getAttedanceApi(user.id, formattedMonth).then((data) => {
+    getAttendanceApi(userid, formattedMonth).then((data) => {
       if (data.message) {
-        setAttendance(data.message);
-      } else {
-        console.log(data);
+        setAttendance(data.message.reverse());
       }
     });
   };
@@ -107,7 +102,7 @@ export const AttendanceHistory = ({ user }) => {
         <div className="vertical-line"></div>
         <h6 className="atdc-history-title">History</h6>
         <Dropdown.Button
-          className="type-dropdown"
+          className="month-dropdown"
           overlayStyle={{ maxHeight: "200px" }}
           menu={menuProps}
         >

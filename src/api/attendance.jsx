@@ -30,7 +30,7 @@ export const clockOutApi = async (id, date, clockOutTime) => {
   }
 };
 
-export const getAttedanceApi = async (id, month) => {
+export const getAttendanceApi = async (id, month) => {
   try {
     const response = await axios.post(
       `http://localhost:8080/api/attendance/attendance/${id}`,
