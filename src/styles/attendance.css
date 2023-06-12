@@ -1,0 +1,202 @@
+.attendance-div{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 75%;
+    background-color: #272626;
+    border-radius: 30px;
+    margin: 10px;
+}
+
+.date-div{
+    display: flex;
+    flex-direction: row;
+    width: 25%;
+    height: 100%;
+    background-color: #272626;
+    border-radius: 30px;
+    margin: 10px;
+    padding: 20px;
+}
+.atdc-top-div {
+    display: flex;
+    flex-direction: row;
+    height: 30%;
+}
+
+
+.atdc-title{
+    font-size: 1.5rem;
+    font-family: 'Courier New', Courier, monospace;
+    font-style: bold;
+}
+
+.atdc-date{
+    font-size: 1.2rem;
+    font-family: 'Courier New', Courier, monospace;
+    font-style: bold;
+    margin: 10px;
+    background-color: #272626;
+    width: 30%;
+    align-self: center;
+    border-radius: 10px;
+    color: white;
+    padding: 3px;
+    opacity: 0.8;
+}
+
+.atdc-buttons-div{
+    width: 90%;
+    height: 90%;
+    align-self: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: 10px;
+}
+
+.clock-in-button{
+    width:30%;
+    height: 60%;
+    border-radius: 20px;
+    margin: 5px;
+    font-size: 20px;
+    margin-top:15px;
+    background: linear-gradient(to right, #b987f3, #5bd4ec);
+    opacity: 0.8;
+    color: white;
+    overflow: auto;
+}
+
+.ant-btn:hover,
+.ant-btn:focus {
+  color: white !important; /* Change the text color to red on hover */
+}
+
+.ant-btn:hover:disabled,
+.ant-btn:focus:disabled {
+  color: gray !important; /* Change the text color to red on hover */
+}
+
+.atdc-day{
+    margin-bottom: 0px;
+    font-size: 30px;
+    align-self: flex-start;
+    font-family: 'Courier New', Courier, monospace;
+}
+.atdc-year{
+    margin-bottom: 0px;
+    font-size: 30px;
+    align-self: flex-end;
+    font-family: 'Courier New', Courier, monospace;
+}
+.atdc-calendar-img{
+    width: 100px;
+    height: 100px;
+    align-self: center;
+    justify-self: center;
+}
+
+.date-overlay{
+    font-size: 110px;
+    font-weight: bold;
+    align-self: center;
+    justify-self: center;
+    margin-top: 15%;
+}
+.date-content{
+    flex-direction: row;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+}
+
+.history-card {
+        height: 180px;
+        background-color: #404040;
+        border: 1px solid #272626;
+        margin-left: 0px;
+        margin-right: 0px;
+}
+
+.history-date{
+    display: inline-flex;
+    align-items: center;
+    color: white;
+}
+:where(.css-dev-only-do-not-override-15rg2km).ant-spin-nested-loading {
+    position: relative;
+    width: 98%;
+}
+.history-date-div{
+    display: flex;
+    flex-direction: row;
+    /* background-color: pink; */
+    justify-content: space-between;
+    align-items: center;
+}
+
+.history-time-div{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top:8px;
+}
+
+.history-time-div h5{
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 500;
+}
+
+.history-time-div h4{
+color: white;
+}
+
+.atdc-status{
+    color:"white";
+}
+
+.atdc-history-title-div{
+    flex-direction: row;
+    display: flex;
+    padding: 10px;
+    width: 100%;
+    height: 10%;
+    justify-content: center;
+    align-items: center;
+}
+
+.atdc-history-title{
+    align-self: flex-start;
+    font-size: 22px;
+    width:40%;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 600;
+    margin-left: 10px;
+}
+
+.vertical-line{
+    background-color: #eecea3;
+    height: 24px;
+    width:25px;
+    margin-left: 20px;
+    border-radius: 10px;
+}
+.month-dropdown {
+    margin-left: 80%;
+    height: 40px;
+    float: right;
+    align-self: center;
+    justify-self: flex-end;
+  }
+  
+  .month-dropdown .ant-btn {
+    max-height: 400px;
+    background-color: #080808;
+    background: #080808;
+    color: gray;
+    height: 100%;
+    border: 1px solid #080808;
+  }

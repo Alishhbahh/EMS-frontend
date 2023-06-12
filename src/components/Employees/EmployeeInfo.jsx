@@ -1,7 +1,7 @@
 import moment from "moment";
 import { Avatar } from "antd";
-import "../../styles/dashboard.css";
 import { useState } from "react";
+import "../../styles/dashboard.css";
 import { useSelector } from "react-redux";
 import { EditEmployee } from "./EditEmployee";
 import { EditOutlined } from "@ant-design/icons";

@@ -1,4 +1,9 @@
-import { STORE_USER, SELECT_NAV_ITEM, SELECT_USER } from "./actiontypes";
+import {
+  STORE_USER,
+  SELECT_NAV_ITEM,
+  SELECT_USER,
+  SET_SELECTED_MONTH,
+} from "./actiontypes";
 
 export const addUser = (user) => {
   return {
@@ -18,5 +23,12 @@ export const setSelectedUser = (user) => {
   return {
     type: SELECT_USER,
     payload: user,
+  };
+};
+
+export const setSelectedMonth = (month) => {
+  return {
+    type: SET_SELECTED_MONTH,
+    payload: month,
   };
 };

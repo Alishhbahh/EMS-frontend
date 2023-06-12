@@ -5,13 +5,12 @@ import { toast } from "react-toastify";
 import { useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
 import { colors } from "../../styles/colors";
-import { Input, Dropdown, Button } from "antd";
 import { useNavigate } from "react-router-dom";
-import { Avatar, Divider, List, Card } from "antd";
 import { getEmployeesApi } from "../../api/employee";
 import { setSelectedUser } from "../../redux/actions";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { UserOutlined, UserAddOutlined } from "@ant-design/icons";
+import { Input, Dropdown, Button, Avatar, Divider, List, Card } from "antd";
 
 const Employees = () => {
   const dispatch = useDispatch();
