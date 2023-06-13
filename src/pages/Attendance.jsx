@@ -10,14 +10,23 @@ import { useSelector } from "react-redux";
 import { colors } from "../styles/colors";
 import { useEffect, useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
+import { LeaveForm } from "../components/Leaves/LeaveForm";
 import { ClockCircleOutlined, ScheduleOutlined } from "@ant-design/icons";
 import { AttendanceHistory } from "../components/Attendance/AttendanceHistory";
 
 const Attendance = () => {
+  const [open, setOpen] = useState(false);
   const user = useSelector((state) => state.user);
   const [clockedIn, setClockedIn] = useState(false);
   const [clockedOut, setClockedOut] = useState(false);
   const [currentTime, setCurrentTime] = useState(new Date());
+
+  const showDrawer = () => {
+    setOpen(true);
+  };
+  const onClose = () => {
+    setOpen(false);
+  };
 
   useEffect(() => {
     getCurrentAttendanceApi(currentTime.toLocaleDateString(), user.id).then(
@@ -78,6 +87,7 @@ const Attendance = () => {
 
   return (
     <div className="content-div">
+      {LeaveForm({ onClose, open, user })}
       <div
         style={{
           flexDirection: "row",
@@ -133,7 +143,9 @@ const Attendance = () => {
             <Button
               icon={<ScheduleOutlined style={{ fontSize: "25px" }} />}
               className="clock-in-button"
-              onClick={() => console.log("HANDLE THIS DURING LEAVE MANAGEMENT")}
+              onClick={() => {
+                showDrawer();
+              }}
             >
               Request Leave
             </Button>

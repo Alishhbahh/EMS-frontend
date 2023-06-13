@@ -94,7 +94,7 @@ export const AttendanceHistory = ({ userid }) => {
     }
     const clockIn = moment(clockInTime, "hh:mm:ss a");
     const lateTime = moment("09:00:00 am", "hh:mm:ss a");
-    return clockIn.isAfter(lateTime) ? "Late" : "OnTime";
+    return clockIn.isAfter(lateTime) ? "Late" : "On-Time";
   };
   return (
     <>

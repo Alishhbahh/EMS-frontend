@@ -20,5 +20,5 @@ export const colors = {
   Marketing: "#b987f3",
   Late: "#e8a255",
   Absent: "#f3cfc6",
-  OnTime: "#a9d39e",
+  "On-Time": "#a9d39e",
 };
