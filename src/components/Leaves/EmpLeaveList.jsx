@@ -1,15 +1,28 @@
 import { Table } from "antd";
 import { useEffect, useState } from "react";
-import { getEmployeeLeavesApi } from "../../api/leaves";
+import { getEmployeeLeavesApi, getLeavesApi } from "../../api/leaves";
 import { colors } from "../../styles/colors";
+import { DetailsModal } from "./DetailsModal";
 
 export const EmpLeavesList = ({ user }) => {
   const [data, setData] = useState([]);
+  const [open, setOpen] = useState(false);
+  const [record, setRecord] = useState({});
+
+  const showModal = () => {
+    setOpen(true);
+  };
 
   useEffect(() => {
-    getEmployeeLeavesApi(user.id).then((res) => {
-      setData(res.data);
-    });
+    if (user.role === "Employee") {
+      getEmployeeLeavesApi(user.id).then((res) => {
+        setData(res.data);
+      });
+    } else if (user.role === "HR") {
+      getLeavesApi().then((res) => {
+        setData(res.data);
+      });
+    }
   }, []);
 
   const dataSource = data.map((item) => ({
@@ -33,6 +46,21 @@ export const EmpLeavesList = ({ user }) => {
     {
       title: "HR Response",
       dataIndex: "hrApproval",
+      filters: [
+        {
+          text: "Approved",
+          value: "Approved",
+        },
+        {
+          text: "Pending",
+          value: "Pending",
+        },
+        {
+          text: "Rejected",
+          value: "Rejected",
+        },
+      ],
+      onFilter: (value, record) => record.hrApproval.indexOf(value) === 0,
       render: (text, record) => (
         <span
           className="hrApproval"
@@ -53,18 +81,126 @@ export const EmpLeavesList = ({ user }) => {
           {record.teamLeadApproval}
         </span>
       ),
+      filters: [
+        {
+          text: "Approved",
+          value: "Approved",
+        },
+        {
+          text: "Pending",
+          value: "Pending",
+        },
+        {
+          text: "Rejected",
+          value: "Rejected",
+        },
+      ],
+      onFilter: (value, record) => record.teamLeadApproval.indexOf(value) === 0,
     },
   ];
+  const HRcolumns = [
+    {
+      title: "Employee Name",
+      dataIndex: "user",
+      render: (text, record) => record.user.name,
+      onclick: (text, record) => console.log(record),
+    },
+    {
+      title: "Start Date",
+      dataIndex: "startDate",
+    },
+    {
+      title: "End Date",
+      dataIndex: "endDate",
+    },
+    {
+      title: "HR Response",
+      dataIndex: "hrApproval",
+      filters: [
+        {
+          text: "Approved",
+          value: "Approved",
+        },
+        {
+          text: "Pending",
+          value: "Pending",
+        },
+        {
+          text: "Rejected",
+          value: "Rejected",
+        },
+      ],
+      onFilter: (value, record) => record.hrApproval.indexOf(value) === 0,
+      render: (text, record) => (
+        <span
+          className="hrApproval"
+          style={{ backgroundColor: colors[record.hrApproval] }}
+        >
+          {record.hrApproval}
+        </span>
+      ),
+    },
+    {
+      title: "Team Lead Response",
+      dataIndex: "teamLeadApproval",
+      render: (text, record) => (
+        <span
+          className="hrApproval"
+          style={{ backgroundColor: colors[record.teamLeadApproval] }}
+        >
+          {record.teamLeadApproval}
+        </span>
+      ),
+      filters: [
+        {
+          text: "Approved",
+          value: "Approved",
+        },
+        {
+          text: "Pending",
+          value: "Pending",
+        },
+        {
+          text: "Rejected",
+          value: "Rejected",
+        },
+      ],
+      onFilter: (value, record) => record.teamLeadApproval.indexOf(value) === 0,
+    },
+  ];
+
+  const handleRowClick = () => {
+    if (user.role === "HR" || user.role === "Team Lead") {
+      alert("You are not authorized to view this page");
+    }
+  };
   return (
-    <Table
-      columns={columns}
-      dataSource={dataSource}
-      style={{
-        background: "#080808",
-        alignItems: "center",
-        marginLeft: "25px",
-        paddingLeft: "15px",
-      }}
-    />
+    <>
+      <DetailsModal
+        open={open}
+        onClose={() => setOpen(false)}
+        record={record}
+      />
+      <Table
+        columns={user.role === "HR" ? HRcolumns : columns}
+        pagination={{
+          pageSize: 10, // Set a higher pageSize value
+        }}
+        onRow={(record) => ({
+          onClick: () => {
+            setRecord(record);
+            setOpen(true);
+          },
+        })}
+        dataSource={dataSource}
+        style={{
+          background: "#080808",
+          alignItems: "center",
+          marginLeft: "22px",
+          paddingLeft: "15px",
+          marginRight: "22px",
+        }}
+      />
+    </>
   );
 };

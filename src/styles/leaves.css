@@ -10,12 +10,10 @@
     list-style: none;
     font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,'Noto Sans',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol','Noto Color Emoji';
     /* background: #ffffff; */
-    border-radius: 8px 8px 0 0;
 }
 
 .ant-table-thead{
     background: #080808;
-    border-radius: 8px 8px 0 0;
 }
 :where(.css-dev-only-do-not-override-15rg2km).ant-table-wrapper .ant-table-tbody>tr.ant-table-placeholder {
     background: #262626;
@@ -57,4 +55,36 @@
     border-collapse: separate;
     border-spacing: 0;
     text-align: center;
+}
+.ant-pagination .ant-pagination-item-active {
+    font-weight: 600;
+    background-color: white;
+    border-color: white;
+}
+.ant-pagination .ant-pagination-item a {
+    display: block;
+    padding: 0 6px;
+    color: white;
+    background-color: #262626;
+    transition: none;
+}
+
+.ant-pagination .ant-pagination-disabled .ant-pagination-item-link, :where(.css-dev-only-do-not-override-15rg2km).ant-pagination .ant-pagination-disabled:hover .ant-pagination-item-link {
+    color: white;
+    cursor: not-allowed;
+}
+
+.ant-table-wrapper .ant-table-container table>thead>tr:first-child >*:first-child {
+    border-start-start-radius: 0px;
+
+}
+.ant-table-wrapper .ant-table-container table>thead>tr:first-child >*:last-child {
+    border-start-end-radius: 0px;
+}
+
+.ant-table-wrapper .ant-table-column-title {
+    position: relative;
+    z-index: 1;
+    flex: 1;
+    color: black;
 }

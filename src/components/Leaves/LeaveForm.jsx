@@ -10,7 +10,6 @@ import {
   Space,
 } from "antd";
 const { Option } = Select;
-import moment from "moment";
 import { useState } from "react";
 import "../../styles/attendance.css";
 import { requestLeaveApi } from "../../api/leaves";
@@ -101,8 +100,8 @@ export const LeaveForm = ({ onClose, open, user }) => {
         <Button
           onClick={() => {
             const [startDate, endDate] = selectedDates;
-            const formattedStartDate = moment(startDate).format("DD/MM/YYYY");
-            const formattedEndDate = moment(endDate).format("DD/MM/YYYY");
+            const formattedStartDate = startDate.format("DD/MM/YYYY");
+            const formattedEndDate = endDate.format("DD/MM/YYYY");
             requestLeaveApi(
               user.id,
               type,

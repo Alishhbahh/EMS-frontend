@@ -27,3 +27,14 @@ export const getEmployeeLeavesApi = async (id) => {
     throw new Error(error.message);
   }
 };
+
+export const getLeavesApi = async () => {
+  try {
+    const response = await axios.get(
+      "http://localhost:8080/api/leave/allleaves"
+    );
+    return response.data;
+  } catch (error) {
+    throw new Error(error.message);
+  }
+};
