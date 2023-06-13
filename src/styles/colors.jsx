@@ -21,4 +21,7 @@ export const colors = {
   Late: "#e8a255",
   Absent: "#f3cfc6",
   "On-Time": "#a9d39e",
+  Pending: "#e8a255",
+  Approved: "#a9d39e",
+  Rejected: "#ff6961",
 };

@@ -23,6 +23,7 @@ const EmployeeDetails = () => {
           marginTop: "20px",
           padding: "10px",
           flexDirection: "column",
+          overflowY: "scroll",
         }}
       >
         <AttendanceHistory userid={user._id} />

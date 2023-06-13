@@ -1,0 +1,60 @@
+
+:where(.css-dev-only-do-not-override-15rg2km).ant-table-wrapper .ant-table {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    color: white;
+    font-size: 14px;
+    line-height: 1.5714285714285714;
+    background-color: #262626;
+    list-style: none;
+    font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,'Noto Sans',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol','Noto Color Emoji';
+    /* background: #ffffff; */
+    border-radius: 8px 8px 0 0;
+}
+
+.ant-table-thead{
+    background: #080808;
+    border-radius: 8px 8px 0 0;
+}
+:where(.css-dev-only-do-not-override-15rg2km).ant-table-wrapper .ant-table-tbody>tr.ant-table-placeholder {
+    background: #262626;
+}
+/* Change the background color of the table header */
+.ant-table-thead > tr > th {
+    background-color: #262626; /* Replace with your desired color */
+  }
+  
+  /* Change the text color of the table header */
+  .ant-table-thead > tr > th > div {
+    color: white; /* Replace with your desired color */
+  }
+
+  .hrApproval{
+    padding: 5px;
+    padding-left:15px;
+     padding-right:15px; 
+     border-radius:10px;
+  }
+  .ant-table-wrapper .ant-table-tbody >tr >td {
+    border-bottom: 1px solid gray;
+}
+.ant-table-wrapper .ant-table-tbody >tr.ant-table-row:hover>td, :where(.css-dev-only-do-not-override-15rg2km).ant-table-wrapper .ant-table-tbody >tr >th.ant-table-cell-row-hover>td.ant-table-cell-row-hover {
+    background: #262626;
+
+}
+.ant-table-wrapper .ant-table-thead >tr>th, :where(.css-dev-only-do-not-override-15rg2km).ant-table-wrapper .ant-table-thead >tr>td {
+    position: relative;
+    color: rgba(0, 0, 0, 0.88);
+    font-weight: 600;
+    text-align: center;
+    background: #fafafa;
+}
+
+.ant-table-wrapper table {
+    width: 100%;
+    border-radius: 8px 8px 0 0;
+    border-collapse: separate;
+    border-spacing: 0;
+    text-align: center;
+}
