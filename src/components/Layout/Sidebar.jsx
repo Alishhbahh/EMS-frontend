@@ -48,6 +48,9 @@ export const Sidebar = ({ user, collapsed,  onMouseEnter, onMouseLeave}) => {
     else if(item.key === "attendance"){
       navigate("/attendance");
     }
+    else if(item.key === "leaves"){
+      navigate("/leaves");
+    }
     else{
       navigate("/dashboard");
     }

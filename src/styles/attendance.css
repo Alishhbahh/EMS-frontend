@@ -1,11 +1,13 @@
 .attendance-div{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     height: 100%;
     width: 75%;
     background-color: #272626;
     border-radius: 30px;
     margin: 10px;
+    align-items: center;
+    justify-content: center;
 }
 
 .date-div{
@@ -21,7 +23,7 @@
 .atdc-top-div {
     display: flex;
     flex-direction: row;
-    height: 30%;
+    height: 20%;
 }
 
 
@@ -37,9 +39,21 @@
     font-style: bold;
     margin: 10px;
     background-color: #272626;
-    width: 30%;
+    width: 20%;
     align-self: center;
     border-radius: 10px;
+    color: white;
+    padding: 3px;
+    opacity: 0.8;
+}
+.atdc-time{
+    font-size: 1.2rem;
+    font-family: 'Courier New', Courier, monospace;
+    font-style: bold;
+    margin: 0px;
+    background-color: #272626;
+    width: 100%;
+    align-self: center;
     color: white;
     padding: 3px;
     opacity: 0.8;
@@ -52,7 +66,8 @@
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    margin-top: 10px;
+    /* margin-top: 10px; */
+    justify-self: center;
 }
 
 .clock-in-button{
@@ -61,7 +76,6 @@
     border-radius: 20px;
     margin: 5px;
     font-size: 20px;
-    margin-top:15px;
     background: linear-gradient(to right, #b987f3, #5bd4ec);
     opacity: 0.8;
     color: white;
@@ -102,7 +116,13 @@
     font-weight: bold;
     align-self: center;
     justify-self: center;
-    margin-top: 15%;
+    margin-top:0%;
+}
+.date-div{
+    display: flex;
+    flex-direction: column;
+    width: 25%;
+    height: 100%;
 }
 .date-content{
     flex-direction: row;
@@ -163,7 +183,7 @@ color: white;
     display: flex;
     padding: 10px;
     width: 100%;
-    height: 10%;
+    height: 20%;
     justify-content: center;
     align-items: center;
 }
@@ -172,6 +192,7 @@ color: white;
     align-self: flex-start;
     font-size: 22px;
     width:40%;
+    margin-top: 20px;
     font-family: 'Courier New', Courier, monospace;
     font-weight: 600;
     margin-left: 10px;
@@ -185,7 +206,7 @@ color: white;
     border-radius: 10px;
 }
 .month-dropdown {
-    margin-left: 80%;
+    margin-left: 81%;
     height: 40px;
     float: right;
     align-self: center;
@@ -199,4 +220,54 @@ color: white;
     color: gray;
     height: 100%;
     border: 1px solid #080808;
+  }
+
+  /* LEAVE FORM */
+  .ant-drawer .ant-drawer-title {
+    flex: 1;
+    margin: 0;
+    color: white;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 1.5;
+}
+.ant-drawer .ant-drawer-content {
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background: #262626;
+    pointer-events: auto;
+    color: white;
+}
+
+.ant-form-item .ant-form-item-label >label {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    max-width: 100%;
+    height: 32px;
+    color: white;
+    font-size: 16px;
+}
+
+.ant-drawer .ant-drawer-close {
+color: white
+}
+
+.ant-select-single .ant-select-selector .ant-select-selection-placeholder {
+    color: white;
+    transition: none;
+    pointer-events: none;
+}
+.ant-picker .ant-picker-input >input:placeholder{
+    color: white;
+    opacity: 0.5;
+}
+
+.ant-picker-range .ant-picker-input input::placeholder {
+    color: white;
+  }
+
+  .ant-input-textarea::placeholder {
+    color: white;
   }

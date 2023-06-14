@@ -10,14 +10,23 @@ import { useSelector } from "react-redux";
 import { colors } from "../styles/colors";
 import { useEffect, useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
+import { LeaveForm } from "../components/Leaves/LeaveForm";
 import { ClockCircleOutlined, ScheduleOutlined } from "@ant-design/icons";
 import { AttendanceHistory } from "../components/Attendance/AttendanceHistory";
 
 const Attendance = () => {
+  const [open, setOpen] = useState(false);
   const user = useSelector((state) => state.user);
   const [clockedIn, setClockedIn] = useState(false);
   const [clockedOut, setClockedOut] = useState(false);
   const [currentTime, setCurrentTime] = useState(new Date());
+
+  const showDrawer = () => {
+    setOpen(true);
+  };
+  const onClose = () => {
+    setOpen(false);
+  };
 
   useEffect(() => {
     getCurrentAttendanceApi(currentTime.toLocaleDateString(), user.id).then(
@@ -78,18 +87,22 @@ const Attendance = () => {
 
   return (
     <div className="content-div">
+      {LeaveForm({ onClose, open, user })}
       <div
         style={{
           flexDirection: "row",
           display: "flex",
-          height: "30%",
+          height: "28%",
         }}
       >
         <ToastContainer />
         <div className="date-div">
+          <h4 className="atdc-time">
+            Time: {currentTime.toLocaleTimeString(undefined, { hour12: true })}{" "}
+          </h4>
           <div className="date-content">
             <h4 className="date-overlay"> {currentTime.getDate()}</h4>
-            <div>
+            <div style={{ marginBottom: "30px" }}>
               <h6 className="atdc-day">
                 {currentTime.toLocaleDateString(undefined, {
                   month: "long",
@@ -105,52 +118,50 @@ const Attendance = () => {
         </div>
 
         <div className="attendance-div">
-          <h4 className="atdc-date">
-            Time: {currentTime.toLocaleTimeString(undefined, { hour12: true })}{" "}
-          </h4>
-
-          <div className="atdc-buttons-div">
-            <Button
-              disabled={clockedIn}
-              icon={<ClockCircleOutlined style={{ fontSize: "25px" }} />}
-              style={{ fontSize: "20px" }}
-              className="clock-in-button"
-              onClick={() => {
-                setClockedIn(true);
-                handleClockIn();
-              }}
-            >
-              Clock-In
-            </Button>
-            <Button
-              disabled={clockedOut}
-              icon={<ClockCircleOutlined style={{ fontSize: "25px" }} />}
-              className="clock-in-button"
-              onClick={() => handleClockOut()}
-            >
-              Clock-Out
-            </Button>
-            <Button
-              icon={<ScheduleOutlined style={{ fontSize: "25px" }} />}
-              className="clock-in-button"
-              onClick={() => console.log("HANDLE THIS DURING LEAVE MANAGEMENT")}
-            >
-              Request Leave
-            </Button>
-          </div>
+          <Button
+            disabled={clockedIn}
+            icon={<ClockCircleOutlined style={{ fontSize: "25px" }} />}
+            style={{ fontSize: "20px" }}
+            className="clock-in-button"
+            onClick={() => {
+              setClockedIn(true);
+              handleClockIn();
+            }}
+          >
+            Clock-In
+          </Button>
+          <Button
+            disabled={clockedOut}
+            icon={<ClockCircleOutlined style={{ fontSize: "25px" }} />}
+            className="clock-in-button"
+            onClick={() => handleClockOut()}
+          >
+            Clock-Out
+          </Button>
+          <Button
+            icon={<ScheduleOutlined style={{ fontSize: "25px" }} />}
+            className="clock-in-button"
+            onClick={() => {
+              showDrawer();
+            }}
+          >
+            Request Leave
+          </Button>
         </div>
       </div>
       <div
         style={{
-          minHeight: "70%",
+          // minHeight: "70%",
+          maxHeight: "50%",
           backgroundColor: colors.lightprimary,
           display: "flex",
           flex: 1,
           borderRadius: "30px",
           margin: "10px",
-          marginTop: "20px",
+          marginTop: "30px",
           padding: "10px",
           flexDirection: "column",
+          overflowY: "scroll",
         }}
       >
         <AttendanceHistory userid={user.id} />
