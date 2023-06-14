@@ -38,3 +38,18 @@ export const getLeavesApi = async () => {
     throw new Error(error.message);
   }
 };
+
+export const replyLeaveApi = async (id, leaveId, status) => {
+  try {
+    const response = await axios.put(
+      `http://localhost:8080/api/leave/replyleave/${id}`,
+      {
+        status,
+        leaveId,
+      }
+    );
+    return response.data;
+  } catch (error) {
+    throw new Error(error.message);
+  }
+};

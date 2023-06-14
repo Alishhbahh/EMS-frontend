@@ -1,4 +1,3 @@
-
 :where(.css-dev-only-do-not-override-15rg2km).ant-table-wrapper .ant-table {
     box-sizing: border-box;
     margin: 0;
@@ -8,40 +7,49 @@
     line-height: 1.5714285714285714;
     background-color: #262626;
     list-style: none;
-    font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,'Noto Sans',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol','Noto Color Emoji';
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
     /* background: #ffffff; */
 }
 
-.ant-table-thead{
+.ant-table-thead {
     background: #080808;
 }
+
 :where(.css-dev-only-do-not-override-15rg2km).ant-table-wrapper .ant-table-tbody>tr.ant-table-placeholder {
     background: #262626;
 }
-/* Change the background color of the table header */
-.ant-table-thead > tr > th {
-    background-color: #262626; /* Replace with your desired color */
-  }
-  
-  /* Change the text color of the table header */
-  .ant-table-thead > tr > th > div {
-    color: white; /* Replace with your desired color */
-  }
 
-  .hrApproval{
+/* Change the background color of the table header */
+.ant-table-thead>tr>th {
+    background-color: #262626;
+    /* Replace with your desired color */
+}
+
+/* Change the text color of the table header */
+.ant-table-thead>tr>th>div {
+    color: white;
+    /* Replace with your desired color */
+}
+
+.hrApproval {
     padding: 5px;
-    padding-left:15px;
-     padding-right:15px; 
-     border-radius:10px;
-  }
-  .ant-table-wrapper .ant-table-tbody >tr >td {
+    padding-left: 15px;
+    padding-right: 15px;
+    border-radius: 10px;
+}
+
+.ant-table-wrapper .ant-table-tbody>tr>td {
     border-bottom: 1px solid gray;
 }
-.ant-table-wrapper .ant-table-tbody >tr.ant-table-row:hover>td, :where(.css-dev-only-do-not-override-15rg2km).ant-table-wrapper .ant-table-tbody >tr >th.ant-table-cell-row-hover>td.ant-table-cell-row-hover {
+
+.ant-table-wrapper .ant-table-tbody>tr.ant-table-row:hover>td,
+:where(.css-dev-only-do-not-override-15rg2km).ant-table-wrapper .ant-table-tbody>tr>th.ant-table-cell-row-hover>td.ant-table-cell-row-hover {
     background: #262626;
 
 }
-.ant-table-wrapper .ant-table-thead >tr>th, :where(.css-dev-only-do-not-override-15rg2km).ant-table-wrapper .ant-table-thead >tr>td {
+
+.ant-table-wrapper .ant-table-thead>tr>th,
+:where(.css-dev-only-do-not-override-15rg2km).ant-table-wrapper .ant-table-thead>tr>td {
     position: relative;
     color: rgba(0, 0, 0, 0.88);
     font-weight: 600;
@@ -56,11 +64,13 @@
     border-spacing: 0;
     text-align: center;
 }
+
 .ant-pagination .ant-pagination-item-active {
     font-weight: 600;
     background-color: white;
     border-color: white;
 }
+
 .ant-pagination .ant-pagination-item a {
     display: block;
     padding: 0 6px;
@@ -69,16 +79,18 @@
     transition: none;
 }
 
-.ant-pagination .ant-pagination-disabled .ant-pagination-item-link, :where(.css-dev-only-do-not-override-15rg2km).ant-pagination .ant-pagination-disabled:hover .ant-pagination-item-link {
+.ant-pagination .ant-pagination-disabled .ant-pagination-item-link,
+:where(.css-dev-only-do-not-override-15rg2km).ant-pagination .ant-pagination-disabled:hover .ant-pagination-item-link {
     color: white;
     cursor: not-allowed;
 }
 
-.ant-table-wrapper .ant-table-container table>thead>tr:first-child >*:first-child {
+.ant-table-wrapper .ant-table-container table>thead>tr:first-child>*:first-child {
     border-start-start-radius: 0px;
 
 }
-.ant-table-wrapper .ant-table-container table>thead>tr:first-child >*:last-child {
+
+.ant-table-wrapper .ant-table-container table>thead>tr:first-child>*:last-child {
     border-start-end-radius: 0px;
 }
 
@@ -87,4 +99,114 @@
     z-index: 1;
     flex: 1;
     color: black;
+}
+
+.leave-info-div {
+    width: 100%;
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: row;
+}
+
+.info-holder {
+    width: 80%;
+    background-color: #262626;
+    align-self: center;
+    justify-self: center;
+    margin-left: 30px;
+    border-radius: 10px;
+    border: 1px dotted darkgray;
+    box-shadow: #080808 0px 2px 15px 0px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+.info-holder>h4 {
+    color: white;
+    font-weight: 600;
+    margin-left: 10px;
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+}
+
+.info-holder>h6 {
+    color: white;
+    font-weight: 400;
+    margin-left: 10px;
+    font-size: 40px;
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+}
+
+.hr-response-btns {
+    flex-direction: row;
+    width: 80%;
+    align-items: space-between;
+    justify-content: space-between;
+    margin-top: 6%;
+    display: flex;
+}
+
+.approve-btn {
+    width: 52%;
+    background: linear-gradient(to right, #b987f3, #5bd4ec);
+    color: white;
+    border: none;
+    margin-left: 25px;
+
+}
+
+.reject-btn {
+    width: 52%;
+    background: linear-gradient(to right, #ff6961, gray);
+    color: white;
+    border: none;
+    margin-left: 25px;
+}
+
+.left-div {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    justify-content: center;
+}
+
+.left-div>h4 {
+    color: white;
+    font-weight: 500;
+    margin-left: 10px;
+    font-family: 'Courier New', Courier, monospace;
+    margin-bottom: 10px;
+    text-align: center;
+    margin-left: 45px;
+}
+
+.right-div {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    justify-content: center;
+}
+
+.right-div>h4 {
+    color: white;
+    font-weight: 400;
+    margin-left: 10px;
+    font-family: 'Courier New', Courier, monospace;
+    margin-bottom: 10px;
+    margin-left: 45px;
+}
+
+.ant-modal .ant-modal-content {
+    background-color: #272626;
+    color: white;
+    justify-content: center;
+    align-items: center;
+    width: 600px;
 }

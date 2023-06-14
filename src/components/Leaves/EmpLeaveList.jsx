@@ -1,17 +1,13 @@
 import { Table } from "antd";
 import { useEffect, useState } from "react";
-import { getEmployeeLeavesApi, getLeavesApi } from "../../api/leaves";
 import { colors } from "../../styles/colors";
 import { DetailsModal } from "./DetailsModal";
+import { getEmployeeLeavesApi, getLeavesApi } from "../../api/leaves";
 
 export const EmpLeavesList = ({ user }) => {
   const [data, setData] = useState([]);
   const [open, setOpen] = useState(false);
   const [record, setRecord] = useState({});
-
-  const showModal = () => {
-    setOpen(true);
-  };
 
   useEffect(() => {
     if (user.role === "Employee") {
@@ -103,7 +99,6 @@ export const EmpLeavesList = ({ user }) => {
       title: "Employee Name",
       dataIndex: "user",
       render: (text, record) => record.user.name,
-      onclick: (text, record) => console.log(record),
     },
     {
       title: "Start Date",
@@ -169,17 +164,13 @@ export const EmpLeavesList = ({ user }) => {
     },
   ];
 
-  const handleRowClick = () => {
-    if (user.role === "HR" || user.role === "Team Lead") {
-      alert("You are not authorized to view this page");
-    }
-  };
   return (
     <>
       <DetailsModal
         open={open}
         onClose={() => setOpen(false)}
         record={record}
+        userr={user}
       />
       <Table
         columns={user.role === "HR" ? HRcolumns : columns}
