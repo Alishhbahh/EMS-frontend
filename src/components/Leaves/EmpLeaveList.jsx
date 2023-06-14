@@ -2,7 +2,11 @@ import { Table } from "antd";
 import { useEffect, useState } from "react";
 import { colors } from "../../styles/colors";
 import { DetailsModal } from "./DetailsModal";
-import { getEmployeeLeavesApi, getLeavesApi } from "../../api/leaves";
+import {
+  getEmployeeLeavesApi,
+  getLeavesApi,
+  teamLeadLeavesApi,
+} from "../../api/leaves";
 
 export const EmpLeavesList = ({ user }) => {
   const [data, setData] = useState([]);
@@ -16,6 +20,10 @@ export const EmpLeavesList = ({ user }) => {
       });
     } else if (user.role === "HR") {
       getLeavesApi().then((res) => {
+        setData(res.data);
+      });
+    } else {
+      teamLeadLeavesApi(user.id).then((res) => {
         setData(res.data);
       });
     }

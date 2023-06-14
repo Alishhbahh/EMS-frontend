@@ -39,6 +39,17 @@ export const getLeavesApi = async () => {
   }
 };
 
+export const teamLeadLeavesApi = async (id) => {
+  try {
+    const response = await axios.get(
+      `http://localhost:8080/api/leave/getleadleaves/${id}`
+    );
+    return response.data;
+  } catch (error) {
+    throw new Error(error.message);
+  }
+};
+
 export const replyLeaveApi = async (id, leaveId, status) => {
   try {
     const response = await axios.put(
