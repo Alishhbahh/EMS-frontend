@@ -44,6 +44,7 @@ export const DetailsModal = ({ open, onClose, record, userr }) => {
       okButtonProps={{ disabled: false }}
       cancelButtonProps={{ disabled: false }}
       style={{ width: "650px" }}
+      className="leave-info-modal"
     >
       <ToastContainer />
       <div className="leave-info-div">

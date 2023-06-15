@@ -5,18 +5,18 @@ import {
   EyeInvisibleOutlined,
   EyeOutlined,
 } from "@ant-design/icons";
-import "../styles/auth.css";
+import "../../styles/auth.css";
 import { useState } from "react";
 import jwt_decode from "jwt-decode";
-import bg2 from "../assets/bg2.jpg";
+import bg2 from "../../assets/bg2.jpg";
 import { Input, Button } from "antd";
-import logo from "../assets/logo3.png";
+import logo from "../../assets/logo3.png";
 import { useDispatch } from "react-redux";
-import { addUser } from "../redux/actions";
+import { addUser } from "../../redux/actions";
 import { useNavigate } from "react-router-dom";
-import { loginApi } from "../api/auth";
+import { loginApi } from "../../api/auth";
 import { ToastContainer, toast } from "react-toastify";
-import { emailValidator, passwordValidator } from "../utils/validators";
+import { emailValidator, passwordValidator } from "../../utils/validators";
 
 const Login = () => {
   const dispatch = useDispatch();

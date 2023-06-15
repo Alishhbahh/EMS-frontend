@@ -92,7 +92,7 @@ const Attendance = () => {
         style={{
           flexDirection: "row",
           display: "flex",
-          height: "28%",
+          height: "22%",
         }}
       >
         <ToastContainer />

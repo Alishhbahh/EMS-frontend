@@ -1,13 +1,13 @@
-import "../styles/auth.css";
+import "../../styles/auth.css";
 import { useState } from "react";
-import bg2 from "../assets/bg2.jpg";
+import bg2 from "../../assets/bg2.jpg";
 import { Input, Button } from "antd";
-import logo from "../assets/logo3.png";
+import logo from "../../assets/logo3.png";
 import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
-import { emailValidator } from "../utils/validators";
+import { emailValidator } from "../../utils/validators";
 import { LoginOutlined, MailOutlined } from "@ant-design/icons";
-import { forgotPasswordApi } from "../api/auth";
+import { forgotPasswordApi } from "../../api/auth";
 
 const ForgotPassword = () => {
   const navigate = useNavigate();

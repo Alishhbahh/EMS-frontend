@@ -115,7 +115,7 @@
     background-color: #262626;
     align-self: center;
     justify-self: center;
-    margin-left: 30px;
+    margin-left: 10px;
     border-radius: 10px;
     border: 1px dotted darkgray;
     box-shadow: #080808 0px 2px 15px 0px;
@@ -208,5 +208,5 @@
     color: white;
     justify-content: center;
     align-items: center;
-    width: 600px;
+    width: 550px;
 }

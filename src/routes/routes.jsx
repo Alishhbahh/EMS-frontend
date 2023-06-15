@@ -1,13 +1,14 @@
-import Login from "../pages/Login";
-import Register from "../pages/Register";
+import Login from "../pages/Auth/Login";
+import Register from "../pages/Auth/Register";
 import Dashboard from "../pages/Dashboard";
 import Attendance from "../pages/Attendance";
-import ResetPassword from "../pages/ResetPassword";
+import ResetPassword from "../pages/Auth/ResetPassword";
 import Employees from "../pages/Employees/Employees";
-import ForgotPassword from "../pages/ForgotPassword";
+import ForgotPassword from "../pages/Auth/ForgotPassword";
 import EmployeeLeaves from "../pages/Leaves/EmployeeLeaves";
 import EmployeeDetails from "../pages/Employees/EmployeeDetails";
 import RegisterEmployee from "../pages/Employees/RegisterEmployees";
+import EmployeeSchedule from "../pages/Schedule/EmployeeSchedule";
 
 const publicRoutes = [
   { path: "/login", element: <Login />, layout: null },
@@ -27,6 +28,7 @@ const privateRoutes = [
   { path: "/registeremployee", element: <RegisterEmployee /> },
   { path: "/attendance", element: <Attendance /> },
   { path: "/leaves", element: <EmployeeLeaves /> },
+  { path: "/schedule", element: <EmployeeSchedule /> },
 ];
 
 export { publicRoutes, privateRoutes };

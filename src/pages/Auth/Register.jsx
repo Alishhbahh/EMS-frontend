@@ -13,13 +13,13 @@ import {
   passwordValidator,
   phoneValidator,
   joiningValidator,
-} from "../utils/validators";
-import "../styles/auth.css";
+} from "../../utils/validators";
+import "../../styles/auth.css";
 import moment from "moment";
 import { useState } from "react";
-import bg2 from "../assets/bg2.jpg";
-import logo from "../assets/logo3.png";
-import { registerApi } from "../api/auth";
+import bg2 from "../../assets/bg2.jpg";
+import logo from "../../assets/logo3.png";
+import { registerApi } from "../../api/auth";
 import { useNavigate } from "react-router-dom";
 import { Input, Button, DatePicker } from "antd";
 import { ToastContainer, toast } from "react-toastify";

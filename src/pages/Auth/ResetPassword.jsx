@@ -4,14 +4,14 @@ import {
   EyeInvisibleOutlined,
   EyeOutlined,
 } from "@ant-design/icons";
-import "../styles/auth.css";
+import "../../styles/auth.css";
 import { useState } from "react";
-import bg2 from "../assets/bg2.jpg";
+import bg2 from "../../assets/bg2.jpg";
 import { Input, Button } from "antd";
-import logo from "../assets/logo3.png";
-import { resetPasswordApi } from "../api/auth";
+import logo from "../../assets/logo3.png";
+import { resetPasswordApi } from "../../api/auth";
 import { ToastContainer, toast } from "react-toastify";
-import { passwordValidator } from "../utils/validators";
+import { passwordValidator } from "../../utils/validators";
 import { useNavigate, useParams } from "react-router-dom";
 
 const ResetPassword = () => {
