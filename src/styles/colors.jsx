@@ -25,3 +25,15 @@ export const colors = {
   Approved: "#a9d39e",
   Rejected: "#ff6961",
 };
+
+export const calendarColors = {
+  pastelPink: "rgba(255, 192, 203, 0.5)",
+  // pastelBlue: "rgba(173, 216, 230, 0.5)",
+  pastelGreen: "rgba(144, 238, 144, 0.5)",
+  pastelYellow: "rgba(255, 255, 153, 0.5)",
+  pastelPurple: "rgba(221, 160, 221, 0.5)",
+  pastelPeach: "rgba(255, 218, 185, 0.5)",
+  pastelLavender: "rgba(230, 230, 250, 0.5)",
+  pastelMint: "rgba(189, 252, 201, 0.5)",
+  pastelCoral: "rgba(255, 127, 80, 0.5)",
+};
