@@ -6,9 +6,11 @@ import { useState, useEffect } from "react";
 import { colors } from "../../styles/colors";
 import { ClockCircleOutlined } from "@ant-design/icons";
 import { getAttendanceApi } from "../../api/attendance";
+import { useSelector } from "react-redux";
 
 export const AttendanceHistory = ({ userid }) => {
   const [attendance, setAttendance] = useState([]);
+  const { user } = useSelector((state) => state);
   const [selectedMonth, setSelectedMonth] = useState(
     new Date().toLocaleString("default", { month: "long" })
   );
@@ -99,8 +101,11 @@ export const AttendanceHistory = ({ userid }) => {
   return (
     <>
       <div className="atdc-history-title-div">
-        <div className="vertical-line"></div>
-        <h6 className="atdc-history-title">History</h6>
+        <h6 className="atdc-history-title">
+          {" "}
+          <div className="vertical-line"></div>
+          {user.role === "HR" ? "Attendance" : "History"}
+        </h6>
         <Dropdown.Button
           className="month-dropdown"
           overlayStyle={{ maxHeight: "200px" }}

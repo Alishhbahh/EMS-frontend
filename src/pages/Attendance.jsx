@@ -92,7 +92,7 @@ const Attendance = () => {
         style={{
           flexDirection: "row",
           display: "flex",
-          height: "22%",
+          height: "26%",
         }}
       >
         <ToastContainer />
@@ -152,7 +152,7 @@ const Attendance = () => {
       <div
         style={{
           // minHeight: "70%",
-          maxHeight: "50%",
+          maxHeight: "70%",
           backgroundColor: colors.lightprimary,
           display: "flex",
           flex: 1,

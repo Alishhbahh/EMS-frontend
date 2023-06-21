@@ -5,10 +5,15 @@ import "../../styles/dashboard.css";
 import { useSelector } from "react-redux";
 import { EditEmployee } from "./EditEmployee";
 import { EditOutlined } from "@ant-design/icons";
+import { calendarColors } from "../../styles/colors";
 
 export const EmployeeInfo = () => {
   const [open, setOpen] = useState(false);
   const user = useSelector((state) => state.selectedUser);
+  const randomColorKey =
+    Object.keys(calendarColors)[
+      Math.floor(Math.random() * Object.keys(calendarColors).length)
+    ];
 
   const showModal = () => {
     setOpen(true);
@@ -31,7 +36,13 @@ export const EmployeeInfo = () => {
   return (
     <div className="emp-profile-div">
       <div className="user-avatar-div">
-        <Avatar size="large" className="emp-info-avatar">
+        <Avatar
+          size="large"
+          className="emp-info-avatar"
+          style={{
+            backgroundColor: calendarColors[randomColorKey],
+          }}
+        >
           {user.name ? user.name[0].toUpperCase() : null}
         </Avatar>
       </div>

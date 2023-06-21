@@ -163,3 +163,38 @@
     color: white;
     vertical-align: middle;
 }
+
+.ant-picker-calendar .ant-picker-calendar-header {
+    display: flex;
+    justify-content: flex-end;
+    background-color: #262626;
+    padding: 12px 0;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+}
+.ant-picker-calendar {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    color: rgba(0, 0, 0, 0.88);
+    font-size: 14px;
+    line-height: 1.5714285714285714;
+    list-style: none;
+    font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,'Noto Sans',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol','Noto Color Emoji';
+    background: #080808;
+}
+.ant-picker-calendar.ant-picker-calendar-full .ant-picker-panel {
+    display: block;
+    width: 100%;
+    text-align: end;
+    background: #080808;
+    border: 0;
+    border-bottom-right-radius: 30px;
+}
+.ant-picker-calendar .ant-picker-panel .ant-picker-date-panel {
+    width: auto;
+    background-color: #404040;
+    color: white;
+    border-bottom-left-radius: 30px;
+
+}

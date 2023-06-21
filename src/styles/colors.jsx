@@ -33,7 +33,6 @@ export const calendarColors = {
   pastelYellow: "rgba(255, 255, 153, 0.5)",
   pastelPurple: "rgba(221, 160, 221, 0.5)",
   pastelPeach: "rgba(255, 218, 185, 0.5)",
-  pastelLavender: "rgba(230, 230, 250, 0.5)",
   pastelMint: "rgba(189, 252, 201, 0.5)",
   pastelCoral: "rgba(255, 127, 80, 0.5)",
 };

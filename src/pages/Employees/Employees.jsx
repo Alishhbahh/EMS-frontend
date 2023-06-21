@@ -2,12 +2,12 @@ const { Search } = Input;
 import "../../styles/auth.css";
 import "../../styles/dashboard.css";
 import { toast } from "react-toastify";
-import { useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
 import { colors } from "../../styles/colors";
 import { useNavigate } from "react-router-dom";
 import { getEmployeesApi } from "../../api/employee";
 import { setSelectedUser } from "../../redux/actions";
+import { useDispatch, useSelector } from "react-redux";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { UserOutlined, UserAddOutlined } from "@ant-design/icons";
 import { Input, Dropdown, Button, Avatar, Divider, List, Card } from "antd";
@@ -16,8 +16,9 @@ const Employees = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [employees, setEmployees] = useState([]);
-  const [filteredEmployees, setFilteredEmployees] = useState([]);
+  const user = useSelector((state) => state.user);
   const [searchType, setSearchType] = useState("Everyone");
+  const [filteredEmployees, setFilteredEmployees] = useState([]);
 
   const getAllEmployees = () => {
     getEmployeesApi().then((data) => {
@@ -116,14 +117,16 @@ const Employees = () => {
           >
             {searchType}
           </Dropdown.Button>
-          <Button
-            className="register-user-button"
-            icon={<UserAddOutlined />}
-            size={42}
-            onClick={() => navigate("/registeremployee")}
-          >
-            Register Employee
-          </Button>
+          {user.role === "HR" ? (
+            <Button
+              className="register-user-button"
+              icon={<UserAddOutlined />}
+              size={42}
+              onClick={() => navigate("/registeremployee")}
+            >
+              Register Employee
+            </Button>
+          ) : null}
         </div>
         <div className="emp-list-div">
           <InfiniteScroll

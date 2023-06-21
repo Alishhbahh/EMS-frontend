@@ -210,3 +210,29 @@
     align-items: center;
     width: 550px;
 }
+.ant-table-wrapper .ant-table-thead>tr>th, :where(.css-dev-only-do-not-override-15rg2km).ant-table-wrapper .ant-table-thead>tr>td {
+    position: relative;
+    color: white;
+    font-weight: 600;
+    text-align: center;
+    background: #404040;;
+}
+.ant-table-wrapper .ant-table-column-title {
+    position: relative;
+    z-index: 1;
+    flex: 1;
+    color: white;
+}
+.ant-table-wrapper .ant-table-filter-trigger {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-block: -4px;
+    margin-inline: 4px -8px;
+    padding: 0 4px;
+    color: white;
+    font-size: 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s;
+}

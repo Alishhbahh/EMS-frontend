@@ -296,6 +296,7 @@ background-color: #272626 !important;
   display: flex;
   flex:1;
   border-radius: 20px;
+  max-height: 20%;
 }
 .emp-profile-div {
   display: flex;
