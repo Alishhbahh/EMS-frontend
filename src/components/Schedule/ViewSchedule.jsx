@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
-import { Calendar, Tooltip, Button, Badge } from "antd";
+import { Calendar, Badge } from "antd";
 import "../../styles/schedule.css";
 import { getScheduleApi } from "../../api/schedule";
-import { toast } from "react-toastify";
 import { calendarColors } from "../../styles/colors";
 
 export const ViewSchedule = ({ user }) => {

@@ -431,6 +431,24 @@ span.ant-avatar-string {
   color: white;
   height: 30px;
 }
+.atdc-stats{
+  background: linear-gradient(to right,  #525151,#262626);
+  width: 30%;
+
+}
+.reminder-card{
+  width: 25%;
+  background: linear-gradient(to right,  #525151,#262626);
+  border-radius: 30px;
+  height: 60%;
+  margin: 10px;
+ 
+}
+.ant-statistic .ant-statistic-title {
+  margin-bottom: 15px;
+  color: white;
+  font-size: 14px;
+}
 
 
 
